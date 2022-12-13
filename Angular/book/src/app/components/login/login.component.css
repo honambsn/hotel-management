@@ -1,0 +1,27 @@
+.space {
+    width: 220px;
+    height: auto;
+    display: inline-block;
+  }
+
+.container {
+    display: flex; 
+    width: 100%;
+    justify-content: center;
+}
+  
+button {
+    background: #99A3FF;
+    color: white;
+    border: 0;
+    padding: 6px 12px;
+    border-radius: 2px;
+}
+  
+.button-container {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
