@@ -1,3 +1,4 @@
 # hotel-management
-angular base 
+angular base + user config by nodejs
+
 
