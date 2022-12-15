@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-policy',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./policy.component.css']
 })
 export class PolicyComponent {
+  title = "Policy";
+  constructor(private titleService: Title) {
+    
+  }
 
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+  }
 }

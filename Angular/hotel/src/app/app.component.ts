@@ -13,7 +13,7 @@ export class AppComponent {
     
     // console.log(token);
   }
-  OnInit(){
+  ngOnInit(){
     this.titleService.setTitle(this.title);
   }
 }
