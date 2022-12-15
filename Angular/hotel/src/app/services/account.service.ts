@@ -19,9 +19,10 @@ export class AccountService {
     return this.http.post(api+'account/login', data);
   }
 
-  // signup(data: any): Observable<>{
-  //   return this.http.post(api+'account/signup', data);
-  // }
+  signup(data: any): Observable<any>{
+    console.log(api+'account/add', data)
+    return this.http.post(api+'account/add', data);
+  }
   
 }
 

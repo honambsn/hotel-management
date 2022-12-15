@@ -7,7 +7,7 @@ import { PolicyComponent } from './components/policy/policy.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { Title } from '@angular/platform-browser';
 const routes: Routes = [
-{path:'',component:HomeComponent},
+{path:'home',component:HomeComponent},
 {path:'login',component:LoginComponent},
 {path:'book',component:BookComponent},
 {path:'signup',component:SignupComponent},

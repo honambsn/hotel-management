@@ -32,10 +32,17 @@ button {
  * {box-sizing: border-box}
 
  /* Add padding to containers */
- .container {
-   padding: 32px;
- }
- 
+ .container{
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  height: 200px;
+  margin-top: -400px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 32px;
+}
  /* Full-width input fields */
  input[type=text], input[type=password] {
    width: 100%;

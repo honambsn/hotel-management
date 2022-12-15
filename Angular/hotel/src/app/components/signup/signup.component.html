@@ -4,38 +4,21 @@
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-      
-    <!-- <div class="form-group">
-      
-      <label for="adfsdfaffasdfemail"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-    </div>       -->
 
     <div class="form-group">
       <label for="">Email</label>
       <input type="text" class="form-control" formControlName="email" id="" placeholder="Enter email" required>
     </div>
 
-
-    <!-- <div class="form-group">
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-    </div> -->
-
-
     <div class="form-group">
       <label for="">Password</label>
-      <input type="password" class="form-control" formControlName="password" id="" placeholder="Input field" required>
+      <input type="password" class="form-control" formControlName="password" id="" placeholder="Input field" >
     </div>
 
-    <!-- <div class="form-group">
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-    </div> -->
 
     <div class="form-group">
       <label for="">Repeat Password</label>
-      <input type="password" class="form-control" formControlName="password" id="" placeholder="Repeat Password" required>
+      <input type="password" class="form-control" formControlName="repeat_password" id="" placeholder="Repeat Password" >
   </div>
 
     <label>
@@ -53,3 +36,16 @@
   </div>
 </form>
 
+<div *ngIf="isLogin">
+
+  <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <p><strong>Warning</strong></p> 
+          <strong>Logged in</strong>
+
+  </div>
+  
+  
+  
+
+</div>
