@@ -14,4 +14,5 @@ ng serve (if u want run server but not open browser)
              
 # Mandatory #
 After pull angular folder, type "npm install" to install new npm
+
 Requirements: run nodejs and angular at the same time
