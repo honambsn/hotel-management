@@ -41,6 +41,8 @@ require('./app/routes/account.router')(app);
 app.use(_AuthMiddleware.isAuth);
 
 require('./app/routes/user.router')(app);
+require('./app/routes/room.router')(app);
+
 
 
 
