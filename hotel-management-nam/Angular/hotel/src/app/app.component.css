@@ -38,3 +38,8 @@
   .navbar {
       position:fixed;
   }
+
+  .navbar
+  {
+    float: right;
+  }

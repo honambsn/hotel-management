@@ -138,9 +138,10 @@ button {
     color: White;
     font-size: 15px;  
   }
-  .href>a{
-    color: White;
-  }
+.href
+{
+  color :white;
+}
 
   .Login-Singup
   {
