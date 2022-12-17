@@ -127,6 +127,7 @@ button {
     border-radius: 5px;
     margin-left: 100px;
     color: White;
+    font-size: 15px;
   }
 .button
   {
@@ -135,6 +136,7 @@ button {
     border-style: solid;
     border-radius: 5px;
     color: White;
+    font-size: 15px;  
   }
   .href>a{
     color: White;
@@ -150,4 +152,8 @@ button {
   }
   .signUpbtn{
     margin-right: 40px ;
+  }
+  .h1_Login
+  {
+    font-weight: 500;
   }
