@@ -1,7 +1,7 @@
 var Room = require('../models/room.model');
 var JWT = require('../common/_JWT');
 
-class RoomController{
+class roomController{
     get_list(req, res,next){
         Room.find({})
             .then(rooms=>{
@@ -79,4 +79,4 @@ class RoomController{
 //     });
 // }
 
-module.exports = new RoomController
+module.exports = new roomController
