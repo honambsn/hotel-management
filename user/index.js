@@ -1,8 +1,8 @@
 var express = require('express')
 var app = express();
 
-
-
+const db = require('./app/common/connect')
+db.connection()
 
 // config bodyParser
 var bodyParser = require('body-parser');
