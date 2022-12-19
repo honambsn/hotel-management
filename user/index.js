@@ -32,7 +32,7 @@ app.use(function(req, res, next){
 const _AuthMiddleware = require('./app/common/_AuthMiddleware');
 const userRouter = require('./app/routes/user.router');
 
-
+require('./app/routes/room.router')(app);
 // đặt nằm trc middleware để không check token cho việc login/signup
 require('./app/routes/account.router')(app);
 
@@ -41,7 +41,7 @@ require('./app/routes/account.router')(app);
 app.use(_AuthMiddleware.isAuth);
 
 require('./app/routes/user.router')(app);
-require('./app/routes/room.router')(app);
+// require('./app/routes/room.router')(app);
 
 
 

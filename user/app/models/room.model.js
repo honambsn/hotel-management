@@ -19,7 +19,7 @@ const Room = new Schema({
     price: {type: String,},
     room_status: {type: String,default:'Empty'},
     clean_status: {type: String,default:'Clean'},
-    slug:{type: String,slug:'name',unique: true},
+    slug:{type: String,slug:'room_type',unique: true},
     createAt: {type: Date,default: Date.now},
     updateAt: {type: Date,default: Date.now},
 })

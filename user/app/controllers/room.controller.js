@@ -12,7 +12,7 @@ class roomController{
     }
     
     detail(req, res,next){
-        Room.findOne({ slug: req.params.slug })
+        Room.findById( req.params.id )
             .then(rooms=>{
                 res.json({rooms})
             })
@@ -23,22 +23,21 @@ class roomController{
         const room = new Room(req.body)
         room
             .save()
-            .then(()=>res.json({ rooms }))
+            .then(()=>res.json(req.body))
             .catch((error)=>{})
     }
 
     remove_room(req, res,next){
         Room.deleteOne({_id: req.params.id })
-            .then(()=>res.json({rooms}))
+            .then(rooms=>res.json({rooms}))
             .catch(next)
     }
 
     //edit tung room nho le 
     update_room(req, res,next){
-        Room.findById(req.params.id)
+        Room.updateOne({_id: req.params.id },req.body)
             .then(rooms=>{
-                rooms=rooms.map(room => room.toObject())
-                res.json({ rooms })
+                res.json({rooms})
             })
             .catch(next)
     }
