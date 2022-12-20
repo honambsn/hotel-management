@@ -42,7 +42,7 @@ class roomController{
             .catch(next)
     }
 
-}
+} 
 // exports.get_list = function (req, res) {
 //     Room.get_all(function (data) {
 //         return res.send({result:data})

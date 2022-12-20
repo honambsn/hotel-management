@@ -13,6 +13,9 @@ module.exports = function(router) {
 
     router.patch('/user/update/:id', userController.update_user);
 
+    router.post('/user/login', userController.login);
+
+
 
     //router.post('/user/login', userController.login);
 }

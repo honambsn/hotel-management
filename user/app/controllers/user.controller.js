@@ -1,5 +1,6 @@
 var User = require('../models/user.model');
 var JWT = require('../common/_JWT');
+var userService = require('../common/userServices');
 
 class userController{
     get_list(req, res,next){
@@ -41,9 +42,20 @@ class userController{
         .catch(next)
     }
 
-    login(){
+    login(req,res,next){
+        const {email,password} = req.body
         
+        userService.login({email,password},(error,result)=>{
+            if(error) {
+                return next(error)
+            }
+            return res.status(200).json({
+                message:"Success",
+                data: result,
+            })
+        })
     }
+
 
 }
 
