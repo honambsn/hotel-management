@@ -5,9 +5,10 @@ mongoose.plugin(slug);
 const Schema = mongoose.Schema
 
 const User = new Schema({
-    name: {Type: String},
-    email: {Type: String},
-    password: {Type: String}
+    name: {type: String,},
+    email: {type: String,},
+    password: {type: String,},
+    slug:{type: String,slug:'name',unique: true},
 })
 
 // const User = function(user){

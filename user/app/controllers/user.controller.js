@@ -12,7 +12,7 @@ class userController{
     }
     
     detail(req, res,next){
-        User.findById({ slug: req.params.slug })
+        User.findById(req.params.id)
             .then(users=>{
                 res.json({users})
             })
@@ -20,26 +20,25 @@ class userController{
     }
 
     add_user(req, res,next){
-        const user = new user(req.body)
+        const user = new User(req.body)
         user
             .save()
-            .then(()=>res.json( req.body.user ))
+            .then(()=>res.json(req.body))
             .catch((error)=>{})
     }
 
     remove_user(req, res,next){
         User.deleteOne({_id: req.params.id })
-            .then(()=>res.json({users}))
+            .then(users=>res.json({users}))
             .catch(next)
     }
 
     update_user(req, res,next){
-        User.findById(req.params.id)
+        User.updateOne({_id: req.params.id },req.body)
             .then(users=>{
-                users=users.map(user => user.toObject())
-                res.json({ users })
-            })
-            .catch(next)
+                res.json({users})
+        })
+        .catch(next)
     }
 
     login(){

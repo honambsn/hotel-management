@@ -6,11 +6,12 @@ module.exports = function(router) {
 
     router.get('/user/detail/:id', userController.detail);
 
+    router.get('/user/add', userController.add_user);
     router.post('/user/add', userController.add_user);
     
-    router.delete('/user/delete', userController.remove_user);
+    router.delete('/user/delete/:id', userController.remove_user);
 
-    router.put('/user/update', userController.update_user);
+    router.patch('/user/update/:id', userController.update_user);
 
 
     //router.post('/user/login', userController.login);
