@@ -6,7 +6,7 @@ module.exports = function(router) {
 
     router.get('/user/detail/:id', userController.detail);
 
-    router.get('/user/add', userController.add_user);
+    //router.get('/user/add', userController.add_user);
     router.post('/user/add', userController.add_user);
     
     router.delete('/user/delete/:id', userController.remove_user);
