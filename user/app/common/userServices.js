@@ -6,8 +6,10 @@ async function check_login({email,password},callback){
     const user = await User.findOne({email})
     if(user != null){
         if(password===user.password){
-            const token = jwt.make(email)
-            return callback(null,user,token)
+            const token = await jwt.make(email)
+            const result  = {token, user}
+            console.log(result)
+            return callback(null,result)
         }
         else return callback({
             message: "Invalid Password/Email"

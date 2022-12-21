@@ -1,0 +1,46 @@
+<div *ngIf="isAuth">
+  <h1> PROFILE MANAGER</h1>
+
+  <mat-form-field >
+    <mat-label>NAME</mat-label>
+    <input matInput  disabled={{!edit}} [(ngModel)]="name">
+
+  </mat-form-field>
+<hr>
+  <mat-form-field >
+
+    <mat-label>EMAIL</mat-label>
+    <input matInput disabled={{!edit}} placeholder="abc@gmail.com" [(ngModel)]="email">
+  </mat-form-field>
+  <hr>
+  <div *ngIf="changePass">
+    <mat-form-field >
+
+      <mat-label>OLD PASS</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"[(ngModel)]="oPass">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
+    </mat-form-field>
+    <hr>
+    <mat-form-field >
+
+      <mat-label>NEW PASS</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"[(ngModel)]="nPass">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <hr>
+  </div>
+  <button mat-raised-button disabled = {{edit}} color="primary" (click)="editProfile()">EDIT</button>
+  <button mat-raised-button disabled = {{changePass}} color="primary" (click)="changePw()">CHANGE PASSWORD</button>
+  <button mat-raised-button *ngIf="changePass" disabled = {{!changePass}} color="primary" (click)="changePw()">CLOSE CHANGE PASSWORD</button>
+  <button
+  mat-raised-button
+  color="accent"
+  type="submit"(click)="updateProfile()">Save Profile</button>
+</div>
+
+
