@@ -45,12 +45,12 @@ class userController{
     login(req,res,next){
         const {email,password} = req.body
         
-        userService.login({email,password},(error,result)=>{
+        userService.check_login({email,password},(error,result)=>{
             if(error) {
                 return next(error)
             }
             return res.status(200).json({
-                message:"Success",
+                status:true,
                 data: result,
             })
         })
