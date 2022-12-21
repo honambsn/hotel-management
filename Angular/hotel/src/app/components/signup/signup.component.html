@@ -1,0 +1,60 @@
+
+<form action="" method="POST" [formGroup]="formSign" (ngSubmit)="onSign()" style="border:1px solid #ccc" *ngIf="!isLogin">
+  <div class="container">
+    <h1 class="h1_SignUp">Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <div class="form-group">
+      <label for="">Name</label>
+      <input type="text" class="form-control" formControlName="name" id=1 placeholder="Enter name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="text" class="form-control" formControlName="email" id=2 placeholder="Enter email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" class="form-control" formControlName="password" id=3 placeholder="Input field" >
+    </div>
+
+
+    <div class="form-group">
+      <label for="">Repeat Password</label>
+      <input type="password" class="form-control" formControlName="repeat_password" id=4 placeholder="Repeat Password" >
+  </div>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+      
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue"> <a href="/policy" class="href"><mark>Terms & Policy</mark> </a></a>.</p>
+  
+    <div class="clearfix">
+      <button type="submit" class="signupbtn">Sign Up</button>  
+      <br><br>
+      <button type="button" class="cancelbtn"><a href="/login" class="href">Already have account? Login</a></button>
+        
+    </div>
+    </div>
+    <div class="Login_image">
+      <img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000" alt="Login logo" class="login_pic">
+    </div>
+
+</form>
+
+<div *ngIf="isLogin">
+
+  <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <p><strong>Warning</strong></p> 
+          <strong>Logged in</strong>
+
+  </div>
+  
+  
+  
+
+</div>

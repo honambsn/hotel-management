@@ -1,0 +1,124 @@
+[{
+  "_id": {
+    "$oid": "6391c5cae8e0b7ec19edc3c7"
+  },
+  "name": "Luxury Room",
+  "description": "The best room in our hotel",
+  "image": "Room img",
+  "slug": "luxury-room",
+  "price": "8000000"
+},{
+  "_id": {
+    "$oid": "6397344fe8e0b7ec19edc3c9"
+  },
+  "name": "Normal Room",
+  "description": "A normal room",
+  "slug": "normal-room",
+  "price": "1000000",
+  "image": "233"
+},{
+  "_id": {
+    "$oid": "6398052ce8e0b7ec19edc3d1"
+  },
+  "name": "The worst room",
+  "description": "The most affortable room",
+  "slug": "worst-room",
+  "price": "500000",
+  "image": "The worst room"
+},{
+  "_id": {
+    "$oid": "639805f9e8e0b7ec19edc3d2"
+  }
+},{
+  "_id": {
+    "$oid": "639c7065781f0d108c36050d"
+  },
+  "name": "quadroom",
+  "description": "Phòng cho 4 người",
+  "image": "quad room img",
+  "price": "4000000",
+  "createAt": {
+    "$date": {
+      "$numberLong": "1671196773832"
+    }
+  },
+  "updateAt": {
+    "$date": {
+      "$numberLong": "1671196773832"
+    }
+  },
+  "slug": "quadroom",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639c708b661fea4828dc81ea"
+  },
+  "name": "triple room",
+  "description": "Phòng cho 3 người",
+  "image": "triple room img",
+  "price": "3000000",
+  "createAt": {
+    "$date": {
+      "$numberLong": "1671196811267"
+    }
+  },
+  "updateAt": {
+    "$date": {
+      "$numberLong": "1671196811267"
+    }
+  },
+  "slug": "triple-room",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639c84f1a006447e08c67859"
+  },
+  "name": "1 room",
+  "description": "room no1",
+  "image": "room 1 img",
+  "price": "1000000",
+  "createAt": {
+    "$date": {
+      "$numberLong": "1671202033044"
+    }
+  },
+  "updateAt": {
+    "$date": {
+      "$numberLong": "1671202033044"
+    }
+  },
+  "slug": "1-room",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639c85c7a006447e08c6785f"
+  },
+  "name": "phong 2",
+  "description": "phong 2",
+  "image": "phong 2 img",
+  "price": "2000000",
+  "createAt": {
+    "$date": {
+      "$numberLong": "1671202247296"
+    }
+  },
+  "updateAt": {
+    "$date": {
+      "$numberLong": "1671202247296"
+    }
+  },
+  "slug": "phong-2",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639ec8d4681c4ba11d155237"
+  },
+  "room_no": "1",
+  "room_tpye": "one room",
+  "price": "100$",
+  "room_status": "Empty",
+  "clean_status": "clean",
+  "slug": "1",
+  "createAt": "",
+  "updateAt": ""
+}]
