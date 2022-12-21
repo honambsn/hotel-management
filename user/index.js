@@ -53,5 +53,5 @@ app.use(_AuthMiddleware.isAuth);
 const port = 3000;
 //const port = 2500;
 app.listen(port,function(){
-    console.log("server running on", port);
+    console.log("server nodejs is running on", port);
 });
