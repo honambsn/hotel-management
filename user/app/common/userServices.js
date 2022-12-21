@@ -2,7 +2,7 @@ const User = require('../models/user.model')
 const Auth = require('../common/_AuthMiddleware')
 const jwt = require('../common/_JWT')
 
-async function login({email,password},callback){
+async function check_login({email,password},callback){
     const user = await User.findOne({email})
     if(user != null){
         if(password===user.password){
@@ -19,5 +19,5 @@ async function login({email,password},callback){
 }
 
 module.exports = {
-    login
+    check_login
 }
