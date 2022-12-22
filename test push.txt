@@ -6,7 +6,12 @@ asdfds
 ádfasdfsd
 sadasdÁDASDFADSádf
 à
+<<<<<<< HEAD
+tesstttt
+last
+=======
 
 tesstttt
 
 
+>>>>>>> b5ba1a45285a7f5f1346de43fcc8e8aca787fc54
