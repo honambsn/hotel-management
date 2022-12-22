@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   private pass:any;
   nPass:any;
   oPass:any;
+  cPass:any;
   hide:boolean = true;
   changePass:boolean = false;
   edit:boolean = false;
@@ -75,6 +76,9 @@ export class ProfileComponent implements OnInit {
             else if (this.oPass != this.pass)
             {alert("OLD PASSWORD NOT MATCH !!")
           return}
+          else if (this.nPass != this.cPass)
+          {alert("CONFIRM NEW PASSWORD NOT MATCH !!")
+        return}
             else
             {
               this.pass = this.nPass
