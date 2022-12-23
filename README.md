@@ -43,8 +43,12 @@ Sau đó, github sẽ hiển thị/ so sánh nội dung ở trên branch A đã 
 
 ghi tiêu đề,nội dung để tạo pull request (tùy chọn)
 Ví dụ: 
+
 Test- Nam
 Pull từ branch nam về branch test
+
+# #
+
 Sau đó chọn "Draft pull request" để gửi pull request đến branch A
 
 
