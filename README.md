@@ -53,8 +53,11 @@ Sau đó chọn "Draft pull request" để gửi pull request đến branch A
 
 
 Sau khi branch A đã chấp nhận pull request được gửi
+
 Vào git desktop, chọn branch của mình ( branch B)
+
 Chọn fetch origin để reload
+
 Sau đó chọn pull origin để pull code về
 
 
