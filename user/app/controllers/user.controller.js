@@ -52,7 +52,9 @@ class userController{
             
             return res.status(200).json({
                 status:true,
+               
                 data: result,
+                
             })
         })
     }

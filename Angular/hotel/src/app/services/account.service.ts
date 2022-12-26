@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
+ const httpOptions = {
+  headers: new HttpHeaders
+};
 const api  = 'http://localhost:3000/';
 
 
@@ -23,7 +27,16 @@ export class AccountService {
     console.log(api+'account/add', data)
     return this.http.post(api+'account/add', data);
   }
-  
+  getInfo(uid:any):Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    return this.http.get(api+'user/detail/'+uid,httpOptions);
+  }
+  updateInfo(uid:any,data:any):Observable<any>{
+    return this.http.patch(api+'user/update/'+uid,data,httpOptions);
+  }
+
+
 }
 
 
