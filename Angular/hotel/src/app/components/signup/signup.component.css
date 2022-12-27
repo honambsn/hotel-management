@@ -81,7 +81,7 @@ mark {
     border-color: #0d6efd;
     border-style: solid;
     border-radius: 5px;
-    margin-left: 100px;
+    margin-left: 0px;
     color: White;
     font-size: 15px;
     
@@ -94,6 +94,10 @@ mark {
     border-radius: 5px;
     color: White;
     font-size: 15px;
+    margin-left: 170px;
+    width: 250px;
+    padding-left: -10px;
+    padding-right: -10px;
   }
   .href>a{
     color: White;
