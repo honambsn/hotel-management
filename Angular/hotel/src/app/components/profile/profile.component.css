@@ -5,7 +5,7 @@ form {
 }
 
 mat-form-field {
-  width: 50%;
+  width: 70%;
   border-style: solid;
   font-size: 20px;
 }
@@ -21,4 +21,25 @@ h1{
 input{
 
   border-style: solid;
+}
+
+.button-container
+{
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ grid-gap: 20px;
+ width: 70%;
+}
+.closeChangePass
+{
+  height: 40px;
+  width: 20px;
+  font-size: 20px;
+  float: Right;
+  margin-right: 80px;
+  background-color: red;
+}
+.closeChangePass
+{
+  
 }

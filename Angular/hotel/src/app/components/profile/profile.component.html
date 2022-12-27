@@ -1,11 +1,14 @@
 <div *ngIf="isAuth">
-  <h1> PROFILE MANAGER</h1>
+  <h1> PROFILE MANAGER</h1> 
 
   <mat-form-field >
     <mat-label>NAME</mat-label>
     <input matInput  disabled={{!edit}} [(ngModel)]="name">
 
   </mat-form-field>
+  <button mat-raised-button class="closeChangePass" *ngIf="changePass" disabled = {{!changePass}} color="primary" (click)="changePw()" > <i class="fa-regular fa-x" ></i></button>
+
+ 
 <hr>
   <mat-form-field >
 
@@ -43,13 +46,14 @@
     </mat-form-field>
     <hr>
   </div>
+  <div class="button-container">
   <button mat-raised-button disabled = {{edit}} color="primary" (click)="editProfile()">EDIT</button>
-  <button mat-raised-button disabled = {{changePass}} color="primary" (click)="changePw()">CHANGE PASSWORD</button>
-  <button mat-raised-button *ngIf="changePass" disabled = {{!changePass}} color="primary" (click)="changePw()">CLOSE CHANGE PASSWORD</button>
-  <button
-  mat-raised-button
-  color="accent"
-  type="submit"(click)="updateProfile()">Save Profile</button>
+  <button class="change_password" mat-raised-button disabled = {{changePass}} color="primary" (click)="changePw()">CHANGE PASSWORD</button>
+ <!-- <button mat-raised-button *ngIf="changePass" disabled = {{!changePass}} color="primary" (click)="changePw()">CLOSE CHANGE PASSWORD</button>  -->
+  <button class="save_profile" mat-raised-button color="accent" type="submit"(click)="updateProfile()">Save Profile</button>
+
+</div>
+
 </div>
 
 
