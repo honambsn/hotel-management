@@ -90,9 +90,15 @@ button {
    background-color: #f1f1f1;
    text-align: center;
  }
-
+.button-container{
+  margin-left: -23px;
+}
  a:link {
     color: black;
+  }
+  .clearfix
+  {
+    padding-right: -50px;
   }
   
   /* visited link */
@@ -133,7 +139,7 @@ button {
     border-color: #0d6efd;
     border-style: solid;
     border-radius: 5px;
-    margin-left: 100px;
+    margin-left: 70px;
     color: White;
     font-size: 15px;
   }
@@ -159,7 +165,7 @@ button {
   }
   
   .signUpbtn{
-    margin-right: 40px ;
+    margin-right: 0px ;
   }	  
   .h1_Login
   {
