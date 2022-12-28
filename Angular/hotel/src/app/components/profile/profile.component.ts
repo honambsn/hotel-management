@@ -78,7 +78,10 @@ export class ProfileComponent implements OnInit {
           return}
           else if (this.nPass != this.cPass)
           {alert("CONFIRM NEW PASSWORD NOT MATCH !!")
+        return}
+
           return}
+
             else
             {
               this.pass = this.nPass

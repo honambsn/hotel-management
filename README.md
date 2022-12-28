@@ -17,6 +17,10 @@ After pull angular folder, go to Angular/hotel, open this path in cmd, run "npm 
 
 Requirements: run nodejs and angular at the same time
 
+
+ADD URL TO COMPASS TO MANAGE EASIER : 
+mongodb+srv://hotel_admin:nNqSS6TyzPL7vXkT@cluster0.5qio7bt.mongodb.net/test
+
 # Git desktop pull guideline #
 Tải code về từ branch A sang sang B
 ví dụ: 
@@ -59,6 +63,7 @@ Vào git desktop, chọn branch của mình ( branch B)
 Chọn fetch origin để reload
 
 Sau đó chọn pull origin để pull code về
+
 
 
 
