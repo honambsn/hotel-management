@@ -42,6 +42,14 @@ class roomController{
             .catch(next)
     }
 
+    update_all_room(req, res,next){
+        Room.updateMany(req.body)
+            .then(rooms=>{
+                res.json({rooms})
+            })
+            .catch(next)
+    }
+
 } 
 // exports.get_list = function (req, res) {
 //     Room.get_all(function (data) {

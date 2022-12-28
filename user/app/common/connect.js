@@ -21,7 +21,7 @@ mongoose.set('strictQuery', true);
 
 async function connection(){
     try{
-        await mongoose.connect('mongodb://127.0.0.1:27017/hotel_dev')
+        await mongoose.connect('mongodb+srv://hotel_admin:nNqSS6TyzPL7vXkT@cluster0.5qio7bt.mongodb.net/hotel_dev')
         console.log('Connect Successfully')
     }catch(error){
         console.log('Connect Failed')

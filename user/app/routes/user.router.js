@@ -15,6 +15,7 @@ module.exports = function(router) {
 
     router.post('/user/login', userController.login);
 
+    router.post('/user/detail/:id/bookedroom',userController.add_bookedroom_to_user)
 
 
     //router.post('/user/login', userController.login);

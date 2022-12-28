@@ -34,6 +34,7 @@ const userRouter = require('./app/routes/user.router');
 
 require('./app/routes/room.router')(app);
 require('./app/routes/user.router')(app);
+require('./app/routes/service.router')(app);
 // đặt nằm trc middleware để không check token cho việc login/signup
 require('./app/routes/account.router')(app);
 
