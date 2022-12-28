@@ -60,12 +60,19 @@ mark {
 
 }
 
+
 .login_pic
-{
-  float: right;
-  margin-top: 100px;
-  height: 500px;
-}
+  {
+    width: 40%;
+    height: auto;
+    margin-left: 60%;
+    margin-top: 10%;
+  }
+
+  @media all and (max-width: 1200px) {
+    .login_pic { display: none; }
+  }
+
 
 .signupbtn
 {
@@ -74,9 +81,10 @@ mark {
     border-color: #0d6efd;
     border-style: solid;
     border-radius: 5px;
-    margin-left: 100px;
+    margin-left: 0px;
     color: White;
     font-size: 15px;
+    
 }
 .cancelbtn
   {
@@ -86,6 +94,10 @@ mark {
     border-radius: 5px;
     color: White;
     font-size: 15px;
+    margin-left: 170px;
+    width: 250px;
+    padding-left: -10px;
+    padding-right: -10px;
   }
   .href>a{
     color: White;
@@ -97,6 +109,8 @@ mark {
 
 .clearfix
 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin-top: 30px;
 }
 
