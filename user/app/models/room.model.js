@@ -15,8 +15,8 @@ const Schema = mongoose.Schema
 
 const Room = new Schema({
     room_no: {type: String,},
-    room_type: {type: String,},
-    price: {type: String,},
+    room_type: {type: String,default:'standard'},
+    price: {type: String,default:'1000$'},
     room_status: {type: String,default:'Empty'},
     clean_status: {type: String,default:'Clean'},
     slug:{type: String,slug:'room_no',unique: true},
