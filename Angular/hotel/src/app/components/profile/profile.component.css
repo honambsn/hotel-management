@@ -5,7 +5,7 @@ form {
 }
 
 mat-form-field {
-  width: 70%;
+  width: 69%;
   border-style: solid;
   font-size: 20px;
 }
@@ -27,7 +27,7 @@ input{
 {
  display: grid;
  grid-template-columns: 1fr 1fr 1fr;
- grid-gap: 20px;
+ grid-gap: 30px;
  width: 70%;
 }
 .closeChangePass
