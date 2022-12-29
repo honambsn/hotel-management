@@ -1,7 +1,7 @@
  /* Style the navigation bar */
  .navbar {
     width: 100%;
-    background-color: #555;
+    background-color: #ff8d6b;
     overflow: auto;
     
     
@@ -28,7 +28,7 @@
   
   /* Current/active navbar link */
   .active {
-    background-color: #19f8f8;
+    background-color: #6d6262;
   }
   
   /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
