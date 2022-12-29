@@ -1,0 +1,45 @@
+form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 70%;
+  border-style: solid;
+  font-size: 20px;
+}
+mat-label{
+  color:black;
+}
+button{
+  margin-right: 10px;
+}
+h1{
+  margin-top: 10%;
+}
+input{
+
+  border-style: solid;
+}
+
+.button-container
+{
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ grid-gap: 20px;
+ width: 70%;
+}
+.closeChangePass
+{
+  height: 40px;
+  width: 20px;
+  font-size: 20px;
+  float: Right;
+  margin-right: 80px;
+  background-color: red;
+}
+.closeChangePass
+{
+  
+}

@@ -59,3 +59,66 @@ mark {
   font-weight: bold;
 
 }
+
+
+.login_pic
+  {
+    width: 40%;
+    height: auto;
+    margin-left: 60%;
+    margin-top: 10%;
+  }
+
+  @media all and (max-width: 1200px) {
+    .login_pic { display: none; }
+  }
+
+
+.signupbtn
+{
+
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-style: solid;
+    border-radius: 5px;
+    margin-left: 0px;
+    color: White;
+    font-size: 15px;
+    
+}
+.cancelbtn
+  {
+    background-color: #ffc107;
+    border-color:  #ffc107;
+    border-style: solid;
+    border-radius: 5px;
+    color: White;
+    font-size: 15px;
+    margin-left: 170px;
+    width: 250px;
+    padding-left: -10px;
+    padding-right: -10px;
+  }
+  .href>a{
+    color: White;
+  }
+.signupbtn
+{
+  margin-right: 40px;
+}
+
+.clearfix
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 30px;
+}
+
+.h1_SignUp
+{
+  font-weight: 500;
+}
+.href
+{
+  color :white;
+}
