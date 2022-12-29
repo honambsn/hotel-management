@@ -1,6 +1,7 @@
 var User = require('../models/user.model');
 var JWT = require('../common/_JWT');
 var Room = require('../models/room.model');
+var Service = require('../models/service.model')
 var userService = require('../common/userServices');
 
 class userController{
@@ -75,19 +76,41 @@ class userController{
             res.send('this room was already booked')
             }
         })
-            // user.updateOne({$push:{roombooked: room._id}})
-            // user.save()
-            // room.updateOne({$set:{room_status:'Booked'}})
-            // room.save()
-        // if(userService.check_room_status(id)==true){
-        //     const room = Room.findById(req.body.room)
-        //     const user = User.findById(req.params.id)
-        //     await user.updateOne({$push:{roombooked: room._id}})
-        //     await room.updateOne({$set:{room_status:'Booked'}})
-        //     res.json({user})
-        // }else{
-        //     res.send('this room was already booked')
-        // }
+    }
+
+    async cancel_room(req,res,next){
+        const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
+        const user = await User.findById(req.params.id)
+        user.roombooked.pop(room._id)
+        user.save()
+        return res.status(200).json({user})
+    }
+
+    add_bookedservice_to_user(req,res,next){
+        const {_id} = req.body
+        userService.check_service_status({_id},async(error,result)=>{
+            if(error) {
+                return next(error)
+            }
+            if(result==true){
+            const service = await Service.findByIdAndUpdate(req.body,{service_status:'Booked'})
+            const user = await User.findById(req.params.id)
+            user.servicebooked.push(service._id)
+            user.save()
+            return res.status(200).json({user})
+            }
+            else{
+            res.send('this service was already booked')
+            }
+        })
+    }
+
+    async cancel_service(req,res,next){
+        const service = await Service.findByIdAndUpdate(req.body,{service_status:'Empty'})
+        const user = await User.findById(req.params.id)
+        user.servicebooked.pop(service._id)
+        user.save()
+        return res.status(200).json({user})
     }
 
 }

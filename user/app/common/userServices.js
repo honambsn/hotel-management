@@ -1,5 +1,6 @@
 const User = require('../models/user.model')
 const Room = require('../models/room.model');
+const Service = require('../models/service.model')
 const Auth = require('../common/_AuthMiddleware')
 const jwt = require('../common/_JWT')
 
@@ -47,7 +48,26 @@ async function check_room_status({_id},callback){
     }
 }
 
+async function check_service_status({_id},callback){
+    const service = await Service.findById({_id})
+    if(service != null){
+        if(service.service_status==='Empty'){
+            result = true
+            return callback(null,result)
+        }
+        else {
+            result = false
+            return callback(null,result)
+        }
+    }
+    else {
+        result = false
+        return callback(null,result)
+    }
+}
+
 module.exports = {
     check_login,
-    check_room_status
+    check_room_status,
+    check_service_status
 }
