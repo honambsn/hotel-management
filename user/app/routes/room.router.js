@@ -12,4 +12,6 @@ module.exports = function(router) {
 
     router.patch('/room/update/:id', roomController.update_room);
 
+    router.patch('/room/update', roomController.update_all_room);
+
 } 

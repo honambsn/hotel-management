@@ -15,7 +15,12 @@ module.exports = function(router) {
 
     router.post('/user/login', userController.login);
 
+    router.post('/user/detail/:id/bookedroom',userController.add_bookedroom_to_user)
 
+    router.post('/user/detail/:id/cancelroom',userController.cancel_room)
 
+    router.post('/user/detail/:id/bookedservice',userController.add_bookedroom_to_user)
+
+    router.post('/user/detail/:id/cancelservice',userController.cancel_room)
     //router.post('/user/login', userController.login);
 }
