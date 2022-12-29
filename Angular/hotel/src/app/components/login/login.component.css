@@ -232,9 +232,10 @@ button {
   position: relative;
   font-size: 30px;
   top:70px;
-  background-color: #027048;
+  background-color: #159c6b;
   height: 50px;
   width: 300px;
+ 
   padding-top: 12px;
   text-align: center;
   margin-left: auto;
@@ -244,7 +245,9 @@ button {
 .info-3
 {
   margin: auto;
+  
 }
+
 .info-3:hover
 {
   cursor: pointer;
