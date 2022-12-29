@@ -5,7 +5,6 @@ module.exports = function(router) {
 
     router.get('/room/detail/:id', roomController.detail);
 
-    router.get('/room/add', roomController.add_room);
     router.post('/room/add', roomController.add_room);
 
     router.delete('/room/delete/:id', roomController.remove_room);
