@@ -3,9 +3,10 @@
     width: 100%;
     background-color: #ff8d6b;
     overflow: auto;
-    
+    z-index: 10;
     
   }
+  /* mã màu của bonvoy #ff8d6b*/
   .components
   {
     float:right
