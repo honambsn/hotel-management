@@ -6,7 +6,7 @@ module.exports = function(router) {
 
     router.get('/service/detail/:id', serviceController.detail);
 
-    router.get('/service/add', serviceController.add_service);
+    //router.get('/service/add', serviceController.add_service);
     router.post('/service/add', serviceController.add_service);
 
     router.delete('/service/delete/:id', serviceController.remove_service);
