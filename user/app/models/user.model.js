@@ -10,6 +10,7 @@ const User = new Schema({
     password: {type: String,},
     roombooked:[{type:String,default:'Empty',ref:'Room'}],
     servicebooked:[{type:String,default:'Empty',ref:'Service'}],
+    payment: {type: Number},
     slug:{type: String,slug:'name',unique: true},
 })
 

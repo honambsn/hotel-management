@@ -31,7 +31,7 @@ class serviceController{
             .then(services=>res.json({services}))
             .catch(next)
     }
-    
+
     update_service(req, res,next){
         Room.updateOne({_id: req.params.id },req.body)
             .then(services=>{
@@ -39,6 +39,15 @@ class serviceController{
             })
             .catch(next)
     }
+
+    update_all_service(req, res,next){
+        Service.updateMany(req.body)
+            .then(services=>{
+                res.json({services})
+            })
+            .catch(next)
+    }
+
 }
 
 module.exports = new serviceController
