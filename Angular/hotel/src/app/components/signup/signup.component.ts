@@ -28,6 +28,7 @@ export class SignupComponent {
     
     this.titleService.setTitle(this.title);
     this.formSign = this.fb.group({
+      name:['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       repeat_password: ['', Validators.required],
@@ -44,12 +45,12 @@ export class SignupComponent {
     }
     console.log(this.formSign.value);
 
-    var pass1 = Object.values(this.formSign.value)[1];
-    var pass2 = Object.values(this.formSign.value)[2];
+    var pass1 = Object.values(this.formSign.value)[2];
+    var pass2 = Object.values(this.formSign.value)[3];
     
     try {
-      pass1 = Object.values(this.formSign.value)[1];
-      pass2 = Object.values(this.formSign.value)[2];
+      pass1 = Object.values(this.formSign.value)[2];
+      pass2 = Object.values(this.formSign.value)[3];
       
       if (typeof pass1 === 'string' || pass2 === 'string') {
         

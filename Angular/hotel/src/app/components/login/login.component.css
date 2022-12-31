@@ -35,9 +35,9 @@ button {
  .container{
   position: absolute;
   left: 20%;
-  top: 50%;
+  
   height: 200px;
-  margin-top: -400px;
+  margin-top: 150px;
   width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -90,14 +90,24 @@ button {
    background-color: #f1f1f1;
    text-align: center;
  }
-
+.button-container{
+  margin-left: -23px;
+}
  a:link {
     color: black;
+  }
+  .clearfix
+  {
+    padding-right: -50px;
   }
   
   /* visited link */
   a:visited {
     color: none;
+  }
+  .form-group
+  {
+    width: 80%;
   }
   
   /* mouse over link */
@@ -108,4 +118,59 @@ button {
   /* selected link */
   a:active {
     color: none;
+  }
+.form-control{
+  width :100%;
+}
+
+
+  .login_pic
+  {
+    width: 40%;
+    height: auto;
+    margin-left: 60%;
+    margin-top: 10%;
+  }
+ 
+
+  .loginbtn
+  {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-style: solid;
+    border-radius: 5px;
+    margin-left: 70px;
+    color: White;
+    font-size: 15px;
+  }
+.button
+  {
+    background-color: #ffc107;
+    border-color:  #ffc107;
+    border-style: solid;
+    border-radius: 5px;
+    color: White;
+    font-size: 15px;
+  }
+  .href{
+    color: White;
+  }
+
+  .Login-Singup
+  {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    margin-left: -70px;
+  }
+  
+  .signUpbtn{
+    margin-right: 0px ;
+  }	  
+  .h1_Login
+  {
+    font-weight: 500;
+  }	  
+  @media all and (max-width: 1200px) {
+    .login_pic { display: none; }
   }

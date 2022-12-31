@@ -57,11 +57,14 @@ class userController{
         
         userService.check_login({email,password},(error,result)=>{
             if(error) {
-                return next(error)
+                return res.send({result:"error", status:false});
             }
+            
             return res.status(200).json({
                 status:true,
+               
                 data: result,
+                
             })
         })
     }

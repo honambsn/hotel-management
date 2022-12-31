@@ -21,10 +21,12 @@ mongoose.set('strictQuery', true);
 
 async function connection(){
     try{
-        await mongoose.connect('mongodb+srv://hotel_admin:nNqSS6TyzPL7vXkT@cluster0.5qio7bt.mongodb.net/hotel_dev')
-        console.log('Connect Successfully')
+
+        await mongoose.connect('mongodb+srv://hotel_admin:nNqSS6TyzPL7vXkT@cluster0.5qio7bt.mongodb.net/hotel_dev?retryWrites=true&w=majority')
+        console.log('Connect to Database(mongodb) successfully ' )
+
     }catch(error){
-        console.log('Connect Failed')
+        console.log('Connect to Database(mongodb) Failed')
     }
 }
 

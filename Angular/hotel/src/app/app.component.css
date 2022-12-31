@@ -6,6 +6,10 @@
     
     
   }
+  .components
+  {
+    float:right
+  }
   
   /* Navbar links */
   .navbar a {
@@ -35,6 +39,11 @@
     }
   } 
   
-  .navbar {
-      position:fixed;
-  }
+.navbar {
+    position:fixed;
+}
+
+.navbar
+{
+  float: right;
+}
