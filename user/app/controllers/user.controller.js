@@ -91,7 +91,8 @@ class userController{
     async cancel_room(req,res,next){
         const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
         const user = await User.findById(req.params.id)
-        const removeditem = user.roombooked.indexOf(req.body)
+        const removeditem = user.roombooked.indexOf(room._id)
+        console.log(room._id)
         user.roombooked.splice(removeditem,1)
         user.save()
         return res.status(200).json({user})
@@ -119,7 +120,7 @@ class userController{
     async cancel_service(req,res,next){
         const service = await Service.findByIdAndUpdate(req.body,{service_status:'Empty'})
         const user = await User.findById(req.params.id)
-        const removeditem = user.servicebooked.indexOf(req.body)
+        const removeditem = user.servicebooked.indexOf(service._id)
         user.roombooked.splice(removeditem,1)
         user.save()
         return res.status(200).json({user})
