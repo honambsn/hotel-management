@@ -17,7 +17,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ManageUserComponent } from './components/manage-user/manage-user.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { MatIconModule } from '@angular/material/icon'
     BookComponent,
     SignupComponent,
     PolicyComponent,
-    ProfileComponent
+    ProfileComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { MatIconModule } from '@angular/material/icon'
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

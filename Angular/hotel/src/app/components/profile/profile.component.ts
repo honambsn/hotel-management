@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
   changePw()
   {
     this.changePass = !this.changePass;
-    this.nPass=this.oPass="";
+    this.nPass=this.oPass=this.cPass= "";
   }
   updateProfile()
   {
@@ -80,8 +80,6 @@ export class ProfileComponent implements OnInit {
           {alert("CONFIRM NEW PASSWORD NOT MATCH !!")
         return}
 
-          return}
-
             else
             {
               this.pass = this.nPass
@@ -103,5 +101,5 @@ export class ProfileComponent implements OnInit {
     }
 
   }
-}
 
+}
