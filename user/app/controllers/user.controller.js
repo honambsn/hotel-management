@@ -44,6 +44,13 @@ class userController{
         .catch(next)
     }
 
+    update_all_user(req, res,next){
+        User.updateMany(req.body)
+            .then(users=>{
+                res.json({users})
+            })
+            .catch(next)
+    }
 
     login(req,res,next){
         const {email,password} = req.body
@@ -84,7 +91,9 @@ class userController{
     async cancel_room(req,res,next){
         const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
         const user = await User.findById(req.params.id)
-        user.roombooked.pop(room._id)
+        const removeditem = user.roombooked.indexOf(room._id)
+        console.log(room._id)
+        user.roombooked.splice(removeditem,1)
         user.save()
         return res.status(200).json({user})
     }
@@ -111,10 +120,18 @@ class userController{
     async cancel_service(req,res,next){
         const service = await Service.findByIdAndUpdate(req.body,{service_status:'Empty'})
         const user = await User.findById(req.params.id)
-        user.servicebooked.pop(service._id)
+        const removeditem = user.servicebooked.indexOf(service._id)
+        user.roombooked.splice(removeditem,1)
         user.save()
         return res.status(200).json({user})
     }
+
+
+    // async print_room(){
+    //     const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
+    //     const user = await User.findById(req.params.id)
+    //     user.roombooked.forEach()
+    // }
 
 }
 

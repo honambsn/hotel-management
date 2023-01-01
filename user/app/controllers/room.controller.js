@@ -50,6 +50,45 @@ class roomController{
             .catch(next)
     }
 
+    update_standard_room(req, res,next){
+        Room.updateMany({room_type:'standard'},req.body)
+            .then(rooms=>{
+                res.json({rooms})
+            })
+            .catch(next)
+    }
+
+    update_premium_room(req, res,next){
+        Room.updateMany({room_type:'premium'},req.body)
+            .then(rooms=>{
+                res.json({rooms})
+            })
+            .catch(next)
+    }
+
+    update_vip_room(req, res,next){
+        Room.updateMany({room_type:'vip'},req.body)
+            .then(rooms=>{
+                res.json({rooms})
+            })
+            .catch(next)
+    }
+
+    async add_image(req,res,next){
+        const room = await Room.findById(req.params.id)
+        room.room_img.push(req.body.room_img)
+        room.save()
+        return res.status(200).json({room})
+    }
+
+    async delete_image(req,res,next){
+        const room = await Room.findById(req.params.id)
+        const removeditem = room.room_img.indexOf(req.body)
+        room.room_img.splice(removeditem,1)
+        room.save()
+        return res.status(200).json({room})
+    }
+
 } 
 // exports.get_list = function (req, res) {
 //     Room.get_all(function (data) {

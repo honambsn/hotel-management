@@ -12,5 +12,6 @@ module.exports = function(router) {
     router.delete('/service/delete/:id', serviceController.remove_service);
 
     router.patch('/service/update/:id', serviceController.update_service);
+    router.patch('/service/update', serviceController.update_all_service);
 
 } 

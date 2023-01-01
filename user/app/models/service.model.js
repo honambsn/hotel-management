@@ -6,7 +6,7 @@ const Schema = mongoose.Schema
 
 const Service = new Schema({
     type_of_service:{type:String},
-    price:{type:String},
+    price:{type:Number},
     service_status:{type:String,default:'Empty'},
     slug:{type: String,slug:'type_of_service',unique: true},
 })
