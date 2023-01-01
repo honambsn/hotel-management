@@ -6,6 +6,12 @@
     z-index: 10;
     
   }
+  
+
+  .fa-arrow-right-to-bracket,.fa-home,.fa-user,.fa-gg-circle
+  {
+    padding-bottom: 12px;
+  }
   /* mã màu của bonvoy #ff8d6b*/
   .components
   {
