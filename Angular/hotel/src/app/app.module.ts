@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './components/signup/signup.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TestComponent } from './components/test/test.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -17,7 +18,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon'
     BookComponent,
     SignupComponent,
     PolicyComponent,
-    ProfileComponent
+    ProfileComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
