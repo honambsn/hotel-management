@@ -1,7 +1,7 @@
 
 import {Component,OnInit} from '@angular/core';
 import {FormControl, NgForm, Validators} from '@angular/forms';
-import { AccountService } from './../../services/account.service';
+import { AccountService } from 'src/app/services/account/account.service';
 import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-profile',
