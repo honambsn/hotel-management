@@ -1,60 +1,70 @@
 
-
-<form action="" method="POST" [formGroup]="formLogin" (ngSubmit)="onLogin()" style="border:1px solid #ccc" *ngIf="!isAuth">
-    <div class="Login_page" >
-        
-            <div class="container">
-                <h1 class="h1_Login">Login</h1>
-                
-        
-                <div class="form-group">
-                    <label for="">Email</label>
-                    <input type="text" class="form-control" formControlName="email" id=1 placeholder="Email">
-                </div>
-
-                <div class="form-group">
-                    <label for="">Password</label>
-                    <input type="password" class="form-control" formControlName="password" id=2 placeholder="Password">
-                </div>
-
-
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                </label>
-
-                
+ <div class="main"> 
+    <form action="" method="POST" [formGroup]="formLogin" (ngSubmit)="onLogin()" style="border:1px solid #ccc" *ngIf="!isAuth">
+        <div class="Login_page" >
+            <script src="https://kit.fontawesome.com/b25681e46c.js" crossorigin="anonymous"></script> 
+                <div class="container">
+                    <h1 class="h1_Login">Login</h1>
+                    
             
-                <div class="Login-Singup">
-                    <div class="clearfix">
-                        <button type="submit " onclick={submit} class="loginbtn">Log In </button>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control" formControlName="email" id=1 placeholder="Email">
                     </div>
-                    <div class="button-container"><button class="button is-success" onclick={submit}>    
-                        <a href="/signup" class="href">
-                            Not have account yet? Sign up
-                        </a>
-                    </button>
+    
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" formControlName="password" id=2 placeholder="Password">
+                    </div>
+    
+    
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+    
+                    
+                
+                    <div class="Login-Singup">
+                        <div class="clearfix">
+                            <button type="submit " onclick={submit} class="loginbtn">Log In </button>
+                        </div>
+                        <div class="button-container"><button class="button is-success" onclick={submit}>    
+                            <a href="/signup" class="href">
+                                Not have account yet? Sign up
+                            </a>
+                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <img src="https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7892.jpg?w=2000" alt="Login logo" class="login_pic">
+    </form>
+    
         
-</form>
-
-    <img src="https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7892.jpg?w=2000" alt="Login logo" class="login_pic">
-
-
-
-<div *ngIf="isAuth">
+    
+    
+    
+    <div *ngIf="isAuth">
+            
+       
+            <div class="top-container">
+                <div class="tick-button"><i class="fa-solid fa-check"></i></div>
+                <div class="info-1">Awesome!</div>
+                <div class="info-2">You have succesfully login in</div>
+            </div>
+            <div class="bottom-container">
+                <div class="button-noti"> 
+                    <span class="info-3"> <a class="home-link" href="http://localhost:4200/home">Return to home page</a> </span>  
+                </div>
+            </div>
         
         
-    <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <p><strong>Warning</strong></p> 
-            <strong>Logged in</strong>
-
+            
+          
+        
+    
     </div>
-    
-    
-    
 
-</div>
+</div>  
+
+
