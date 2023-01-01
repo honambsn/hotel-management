@@ -8,6 +8,7 @@ const User = new Schema({
     name: {type: String,},
     email: {type: String,},
     password: {type: String,},
+    type: {type:String, default:'customer'},
     roombooked:[{type:String,default:'Empty',ref:'Room'}],
     servicebooked:[{type:String,default:'Empty',ref:'Service'}],
     payment: {type: Number},

@@ -69,6 +69,8 @@ class userController{
         })
     }
 
+
+
     add_bookedroom_to_user(req,res,next){
         const {_id} = req.body
         userService.check_room_status({_id},async(error,result)=>{
