@@ -1,10 +1,8 @@
+import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
 import { AccountService } from 'src/app/services/account/account.service';
-
-
-
 
 @Component({
   selector: 'app-manage-user',
@@ -12,13 +10,14 @@ import { AccountService } from 'src/app/services/account/account.service';
   styleUrls: ['./manage-user.component.css']
 })
 export class ManageUserComponent {
+  title = "Manage User";
   isEdit:boolean = false;
   isAuth:boolean = false;
 
   userData : any = []
   dataSource = new MatTableDataSource <any>(this.userData);
   displayedColumns: string[] = ['id', 'name', 'email', 'password'];
-  constructor(private account :AccountService) {
+  constructor(private account :AccountService, private titleService:Title) {
     const token = localStorage.getItem('token');
     if (token) {
       this.isAuth = true;
@@ -29,10 +28,11 @@ export class ManageUserComponent {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title);
     this.account.getAllInfo().subscribe((data:any)=>{
       console.log(data.users)
       this.dataSource = new MatTableDataSource(data.users)
-
+      
     })
 
   }
