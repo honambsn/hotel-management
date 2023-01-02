@@ -1,11 +1,18 @@
  /* Style the navigation bar */
  .navbar {
     width: 100%;
-    background-color: #555;
+    background-color: #ff8d6b;
     overflow: auto;
-    
+    z-index: 10;
     
   }
+  
+
+  .fa-arrow-right-to-bracket,.fa-home,.fa-user,.fa-gg-circle
+  {
+    padding-bottom: 12px;
+  }
+  /* mã màu của bonvoy #ff8d6b*/
   .components
   {
     float:right
@@ -28,7 +35,7 @@
   
   /* Current/active navbar link */
   .active {
-    background-color: #19f8f8;
+    background-color: #6d6262;
   }
   
   /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */

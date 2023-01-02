@@ -163,7 +163,10 @@ button {
     grid-template-columns: 1fr 1fr; 
     margin-left: -70px;
   }
-  
+  .ng-untouched 
+  {
+    border:none;
+  }
   .signUpbtn{
     margin-right: 0px ;
   }	  
@@ -174,3 +177,86 @@ button {
   @media all and (max-width: 1200px) {
     .login_pic { display: none; }
   }
+
+  /* ifNG */
+
+.top-container
+{
+  margin-top: 200px;
+  height: 200px;
+  background-color: gray;
+  
+}
+.tick-button
+{
+  position: relative;
+  top: 10px;
+  height: 80px;
+  width: 80px;
+  text-align: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #7dbaab ;
+  border-radius: 50%;
+  
+}
+.fa-solid{
+  margin-top: 20px;
+  color: White;
+  font-size: 40px;
+}
+.info-1,.info-2
+{
+  position: relative;
+ 
+  text-align: center;
+  
+  
+}
+.info-1
+{
+  margin-top: 50px;
+  font-size: 25px;
+}
+.info-2
+{
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.bottom-container
+{
+  height: 200px;
+  background-color:#7dbaab;
+}
+.button-noti
+{
+  position: relative;
+  font-size: 30px;
+  top:70px;
+  background-color: #159c6b;
+  height: 50px;
+  width: 300px;
+ 
+  padding-top: 12px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.info-3
+{
+  margin: auto;
+  
+}
+
+.info-3:hover
+{
+  cursor: pointer;
+
+}
+.home-link{
+  color: black;
+}
+

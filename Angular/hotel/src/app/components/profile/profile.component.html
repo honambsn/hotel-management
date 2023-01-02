@@ -1,6 +1,8 @@
 <div *ngIf="isAuth">
+
   <h1> PROFILE MANAGER</h1>
 
+  
   <mat-form-field >
     <mat-label>NAME</mat-label>
     <input matInput  disabled={{!edit}} [(ngModel)]="name">
@@ -15,6 +17,14 @@
     <mat-label>EMAIL</mat-label>
     <input matInput disabled={{!edit}} placeholder="abc@gmail.com" [(ngModel)]="email">
   </mat-form-field>
+
+  <hr>
+  <mat-form-field >
+    <mat-label>ACCOUNT TYPE</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{this.type}}" [(ngModel)]="type">
+  </mat-form-field>
+
+
   <hr>
   <div *ngIf="changePass">
     <mat-form-field >

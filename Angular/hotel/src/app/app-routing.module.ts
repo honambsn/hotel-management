@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookComponent } from './components/book/book.component';
@@ -6,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TestComponent } from './components/test/test.component';
 import { Title } from '@angular/platform-browser';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 const routes: Routes = [
@@ -15,7 +17,8 @@ const routes: Routes = [
 {path:'signup',component:SignupComponent},
 {path:'policy',component:PolicyComponent},
 {path:'profile',component:ProfileComponent},
-{path:'manage-user',component:ManageUserComponent}
+{path:'manage-user',component:ManageUserComponent},
+{path:'test', component:TestComponent}
 ];
 
 @NgModule({

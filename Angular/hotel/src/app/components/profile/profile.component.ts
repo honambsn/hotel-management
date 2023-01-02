@@ -1,16 +1,18 @@
 
 import {Component,OnInit} from '@angular/core';
 import {FormControl, NgForm, Validators} from '@angular/forms';
-import { AccountService } from './../../services/account.service';
-
+import { AccountService } from 'src/app/services/account/account.service';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  title = "Profile";
   name:any;
   email:any;
+  type:any
   private pass:any;
   nPass:any;
   oPass:any;
@@ -26,7 +28,8 @@ export class ProfileComponent implements OnInit {
     password: ""
   }
   // check xem token co hop le hay khong de access vao book list
-  constructor(private account :AccountService) {
+  constructor(private account :AccountService, private titleService:Title) {
+    
     const token = localStorage.getItem('token');
     if (token) {
       this.isAuth = true;
@@ -36,11 +39,13 @@ export class ProfileComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.titleService.setTitle(this.title)
     console.log(localStorage.getItem("uid"))
     this.account.getInfo(localStorage.getItem("uid")).subscribe((data:any)=>{
       this.name = data.users.name
       this.email = data.users.email
       this.pass = data.users.password
+      this.type = data.users.type
     })
 
   }
