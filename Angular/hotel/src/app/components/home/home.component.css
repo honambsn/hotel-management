@@ -29,7 +29,7 @@
     
     display: inline-block;
     float : right;
-    margin-top: 100px;
+    margin-top: 50px;
     font-size:15px;
     display: grid;
     text-align: center;
@@ -219,4 +219,10 @@
   margin-right: -396px;
 }
   
-
+.DateRange
+{
+  display: inline-block;
+  height: 100px;
+  width: 250px;
+  margin-left: 80px;
+}
