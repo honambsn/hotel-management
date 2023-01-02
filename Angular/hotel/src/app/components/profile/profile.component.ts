@@ -29,17 +29,17 @@ export class ProfileComponent implements OnInit {
   }
   // check xem token co hop le hay khong de access vao book list
   constructor(private account :AccountService, private titleService:Title) {
-    titleService.setTitle(this.title)
+    
     const token = localStorage.getItem('token');
     if (token) {
       this.isAuth = true;
     }
-    else {
+    else {ư
       this.isAuth = false;
     }
   }
   ngOnInit(): void {
-
+    this.titleService.setTitle(this.title)
     console.log(localStorage.getItem("uid"))
     this.account.getInfo(localStorage.getItem("uid")).subscribe((data:any)=>{
       this.name = data.users.name
