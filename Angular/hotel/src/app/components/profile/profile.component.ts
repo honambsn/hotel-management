@@ -12,6 +12,8 @@ export class ProfileComponent implements OnInit {
   title = "Profile";
   name:any;
   email:any;
+  dob : any
+  address: any
   type:any
   private pass:any;
   nPass:any;
@@ -25,7 +27,10 @@ export class ProfileComponent implements OnInit {
   private info = {
     name:"",
     email:"",
-    password: ""
+    password: "",
+    dob: "",
+    address: "",
+
   }
   // check xem token co hop le hay khong de access vao book list
   constructor(private account :AccountService, private titleService:Title) {
@@ -46,6 +51,8 @@ export class ProfileComponent implements OnInit {
       this.email = data.users.email
       this.pass = data.users.password
       this.type = data.users.type
+      this.dob = data.users.dob;
+      this.address = data.users.address;
     })
 
   }
@@ -97,6 +104,8 @@ export class ProfileComponent implements OnInit {
           this.info.name = this.name;
           this.info.email = this.email;
           this.info.password = this.pass;
+          this.info.dob = this.dob;
+          this.info.address = this.address;
           console.log(this.info)
           this.account.updateInfo(localStorage.getItem('uid'),this.info ).subscribe((data:any)=>{
             alert("UPDATE INFORMATION: "+ data.users.acknowledged)
