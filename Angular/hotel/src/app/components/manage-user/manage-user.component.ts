@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
-import { AccountService } from 'src/app/services/account.service';
+import { AccountService } from 'src/app/services/account/account.service';
 
 
 
