@@ -11,15 +11,14 @@ import { SignupComponent } from './components/signup/signup.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TestComponent } from './components/test/test.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     BookComponent,
     SignupComponent,
     PolicyComponent,
-    ProfileComponent,
-    TestComponent
+    TestComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +40,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

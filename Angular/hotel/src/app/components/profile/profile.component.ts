@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   }
   // check xem token co hop le hay khong de access vao book list
   constructor(private account :AccountService, private titleService:Title) {
-    titleService.setTitle(this.title)
+    
     const token = localStorage.getItem('token');
     if (token) {
       this.isAuth = true;
@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-
+    this.titleService.setTitle(this.title)
     console.log(localStorage.getItem("uid"))
     this.account.getInfo(localStorage.getItem("uid")).subscribe((data:any)=>{
       this.name = data.users.name
@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
   changePw()
   {
     this.changePass = !this.changePass;
-    this.nPass=this.oPass="";
+    this.nPass=this.oPass=this.cPass= "";
   }
   updateProfile()
   {
@@ -85,8 +85,6 @@ export class ProfileComponent implements OnInit {
           {alert("CONFIRM NEW PASSWORD NOT MATCH !!")
         return}
 
-          return}
-
             else
             {
               this.pass = this.nPass
@@ -108,3 +106,5 @@ export class ProfileComponent implements OnInit {
     }
 
   }
+
+}

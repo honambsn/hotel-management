@@ -35,7 +35,11 @@ export class AccountService {
   updateInfo(uid:any,data:any):Observable<any>{
     return this.http.patch(api+'user/update/'+uid,data,httpOptions);
   }
-
+  getAllInfo():Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    return this.http.get(api+'user/list/',httpOptions);
+  }
 
 }
 
