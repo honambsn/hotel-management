@@ -1,5 +1,7 @@
 var User = require('../models/user.model');
 var JWT = require('../common/_JWT');
+var Room = require('../models/room.model');
+var Service = require('../models/service.model')
 var userService = require('../common/userServices');
 
 class userController{
@@ -42,6 +44,14 @@ class userController{
         .catch(next)
     }
 
+    update_all_user(req, res,next){
+        User.updateMany(req.body)
+            .then(users=>{
+                res.json({users})
+            })
+            .catch(next)
+    }
+
     login(req,res,next){
         const {email,password} = req.body
         
@@ -59,6 +69,71 @@ class userController{
         })
     }
 
+
+
+    add_bookedroom_to_user(req,res,next){
+        const {_id} = req.body
+        userService.check_room_status({_id},async(error,result)=>{
+            if(error) {
+                return next(error)
+            }
+            if(result==true){
+            const room = await Room.findByIdAndUpdate(req.body,{room_status:'Booked'})
+            const user = await User.findById(req.params.id)
+            user.roombooked.push(room._id)
+            user.save()
+            return res.status(200).json({user})
+            }
+            else{
+            res.send('this room was already booked')
+            }
+        })
+    }
+
+    async cancel_room(req,res,next){
+        const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
+        const user = await User.findById(req.params.id)
+        const removeditem = user.roombooked.indexOf(room._id)
+        console.log(room._id)
+        user.roombooked.splice(removeditem,1)
+        user.save()
+        return res.status(200).json({user})
+    }
+
+    add_bookedservice_to_user(req,res,next){
+        const {_id} = req.body
+        userService.check_service_status({_id},async(error,result)=>{
+            if(error) {
+                return next(error)
+            }
+            if(result==true){
+            const service = await Service.findByIdAndUpdate(req.body,{service_status:'Booked'})
+            const user = await User.findById(req.params.id)
+            user.servicebooked.push(service._id)
+            user.save()
+            return res.status(200).json({user})
+            }
+            else{
+            res.send('this service was already booked')
+            }
+        })
+    }
+
+    async cancel_service(req,res,next){
+        const service = await Service.findByIdAndUpdate(req.body,{service_status:'Empty'})
+        const user = await User.findById(req.params.id)
+        const removeditem = user.servicebooked.indexOf(service._id)
+        user.roombooked.splice(removeditem,1)
+        user.save()
+        return res.status(200).json({user})
+    }
+
+
+    // async print_room(){
+    //     const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
+    //     const user = await User.findById(req.params.id)
+    //     user.roombooked.forEach()
+    // }
 
 }
 
