@@ -1,4 +1,4 @@
-
+<div>
 <form action="" method="POST" [formGroup]="formSign" (ngSubmit)="onSign()" style="border:1px solid #ccc" *ngIf="!isLogin">
   <div class="container">
     <h1 class="h1_SignUp">Sign Up</h1>
@@ -44,18 +44,27 @@
     
 
 </form>
-<img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000" alt="Login logo" class="login_pic">
 
+  
 <div *ngIf="isLogin">
-
-  <div class="alert alert-warning">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <p><strong>Warning</strong></p> 
-          <strong>Logged in</strong>
-
+            
+       
+  <div class="top-container">
+      <div class="tick-button"><i class="fa-solid fa-check"></i></div>
+      <div class="info-1">Awesome!</div>
+      <div class="info-2">You have succesfully login in</div>
   </div>
+  <div class="bottom-container">
+      <div class="button-noti"> 
+          <span class="info-3"> <a class="home-link" href="http://localhost:4200/home">Return to home page</a> </span>  
+      </div>
+  </div>
+
+
   
-  
-  
+
+
 
 </div>
+  
+
