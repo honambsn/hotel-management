@@ -1,3 +1,4 @@
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +20,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
-import { ManageUserComponent } from './components/manage-user/manage-user.component';
 @NgModule({
   declarations: [
     AppComponent,
