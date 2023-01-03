@@ -8,8 +8,9 @@
 
 </head>
 <body>
-
+<div class="main-container"> 
  
+
 <div class="menubar">
   <div class="menubar-left"><img src="https://buy.points.com/marketing/marriott/landing_page/images/mr-logo_2022.png" alt=""></div>
   <div class="menubar-right">
@@ -17,25 +18,40 @@
     <div><i class="fa-sharp fa-solid fa-virus-covid"></i><a routerLink="/test" class="menubar-info"> test</a> </div>
     <div><i class="fa-sharp fa-solid fa-virus-covid"></i><a  href="https://covid19.gov.vn/"  class="menubar-info" target="_blank">Covid 19</a> </div>
     <div><i class="fa-solid fa-suitcase"></i><a href="" class="menubar-info">My Trip</a> </div>
-    <div><i class="fa-regular fa-user"></i><a routerLink="/ogin" class="menubar-info">Login</a> </div>
+    <div><i class="fa-regular fa-user"></i><a routerLink="/login" class="menubar-info">Login</a> </div>
     <div><i class="fa-sharp fa-solid fa-right-to-bracket"></i><a href="http://localhost:4200/signup" class="menubar-info">Sign Up</a> </div>
   </div>
+  
+  
+</div> 
+
+<div class="sticky-bar">
+ 
   <div class="DateRange">
     <ejs-daterangepicker placeholder="Select the date range "
     [startDate] = "startDateValue"
     [endDate] = "endDateValue"  ></ejs-daterangepicker>
+  </div>
+
+  <!-- <div class="people">
+    <div><i class="fa-sharp fa-solid fa-person"></i>Adult<button (click) = "counter_minus()"> <i class="fa-solid fa-minus"></i></button> <button (click) = "counter_plus()"><i class="fa-solid fa-plus"></i></button><p class="counter" >Count : {{count}}</p> </div>
+    <div><i class="fa-solid fa-children"></i>Chidrent</div>
+    <div><i class="fa-solid fa-house-user"></i>Room</div>
+  </div> -->
+
+  <div class="findHotel-info">
     
   </div>
-</div> 
+</div>
 
 <div class="header">
+  
+  
   
   <div class="header-content">The ideal vacation is waiting for you to experience!</div>
   <button class="header-button">Book a room</button>
   
 </div>
-
-
 
 
 <h2 class="property">Browser by property type</h2>
@@ -384,7 +400,7 @@
   
 
 
-
+</div>
 
   
 
