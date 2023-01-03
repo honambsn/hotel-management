@@ -4,12 +4,19 @@
 
 
   <mat-form-field >
+    <mat-label>ACCOUNT TYPE</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{this.type}}" [(ngModel)]="type">
+  </mat-form-field>
+  
+  <hr>
+
+
+  <mat-form-field >
     <mat-label>NAME</mat-label>
     <input matInput  disabled={{!edit}} [(ngModel)]="name">
 
   </mat-form-field>
   <button mat-raised-button class="closeChangePass" *ngIf="changePass" disabled = {{!changePass}} color="primary" (click)="changePw()" > <i class="fa-regular fa-x" ></i></button>
-
 
 <hr>
   <mat-form-field >
@@ -20,10 +27,15 @@
 
   <hr>
   <mat-form-field >
-    <mat-label>ACCOUNT TYPE</mat-label>
-    <input matInput disabled=true [(ngModel)]="type">
+    <mat-label> DATE OF BIRTH</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{this.dob}}" [(ngModel)]="dob">
   </mat-form-field>
 
+  <hr>
+  <mat-form-field >
+    <mat-label> ADDRESS</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{this.address}}" [(ngModel)]="address">
+  </mat-form-field>
 
   <hr>
   <div *ngIf="changePass">

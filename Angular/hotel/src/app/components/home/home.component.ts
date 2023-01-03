@@ -10,9 +10,12 @@ export class HomeComponent {
   title = "Home";
   constructor(private titleService:Title,){
 
+
   }
   ngOnInit(){
     this.titleService.setTitle(this.title);
   }
+  public startDateValue : Date = new Date(2022, 5, 13);
+  public endDateValue : Date = new Date(2022, 5, 15);
   
 }

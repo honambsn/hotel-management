@@ -5,9 +5,12 @@ mongoose.plugin(slug);
 const Schema = mongoose.Schema
 
 const User = new Schema({
+
     name: {type: String,default:'Guest'},
     email: {type: String,default:'example@mail.com'},
     password: {type: String,default:'123abc'},
+    dob: {type: String,default:'31/0/2002'},
+    address: {type:String, default:'227 D. Nguyen Van Cu, Ward 4, District 5, Ho Chi Minh City'},
     type: {type:String, default:'customer'},
     roombooked:[{type:String,default:'Empty',ref:'Room'}],
     servicebooked:[{type:String,default:'Empty',ref:'Service'}],

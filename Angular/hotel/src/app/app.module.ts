@@ -1,3 +1,5 @@
+import { RoomComponent } from './components/room/room.component';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +23,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     PolicyComponent,
     TestComponent,
     ProfileComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    RoomComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     MatTableModule,
     MatCheckboxModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    DateRangePickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,13 +29,13 @@
     
     display: inline-block;
     float : right;
-    margin-top: 100px;
+    margin-top: 50px;
     font-size:15px;
     display: grid;
     text-align: center;
     margin-right: -10%;
     font-size: 20px;
-    grid-template-columns: 120px 120px 120px 120px ;
+    grid-template-columns: 135px 135px 135px 135px 135px ;
   }
   .menubar-info
   {
@@ -50,15 +50,15 @@
   .header {
     padding: 80px;
     height: 600px;
-    margin-left: -390px;
-    margin-right: -381px;
+    margin-left: -397px;
+  margin-right: -396px;
     
     
     background: url("https://banfflakelouise.bynder.com/m/1b62cdbcee223d7b/2000x1080_jpg-2022_MoraineLake_sightseeing_SamanthaReid.jpg");
     background-repeat: no-repeat;
     background-size:cover;
     color: white;
-    filter: brightness(90%);
+    filter: brightness(80%);
     /* opacity: 0.95; */
 
   }
@@ -81,6 +81,7 @@
     border-radius: 20px;
     margin-top: 20px;
     padding: 15px 15px 15px 15px;
+    font-size: 18px;
     background-color: black;
   }
   .featured{
@@ -209,5 +210,19 @@
       width: 100%;
     }
   }
+.bg-dark 
+{
+  height: 400px;
+  margin-top: 150px;
+  font-size: 15px;
+  margin-left: -397px;
+  margin-right: -396px;
+}
   
-
+.DateRange
+{
+  display: inline-block;
+  height: 100px;
+  width: 250px;
+  margin-left: 80px;
+}

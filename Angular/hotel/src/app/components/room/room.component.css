@@ -1,0 +1,13 @@
+table{
+    margin-top: 10%;
+    margin-left: -20% ;
+  }
+  .mat-column-select {
+    overflow: initial;
+  }
+  button{
+    margin:auto;
+    margin-top: 5%;
+    margin-right: 10px;
+
+  }

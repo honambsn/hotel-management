@@ -1,9 +1,12 @@
+
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
 import { AccountService } from 'src/app/services/account/account.service';
 import {MatPaginator} from '@angular/material/paginator';
 import { JsonpClientBackend } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
 
 
@@ -12,25 +15,40 @@ import { JsonpClientBackend } from '@angular/common/http';
   templateUrl: './manage-user.component.html',
   styleUrls: ['./manage-user.component.css']
 })
+
+
 export class ManageUserComponent implements AfterViewInit {
+
+  title = "Manage User";
   isEdit:boolean = false;
   isAuth:boolean = false;
+  isEmployee: boolean = false
 
   userData : any = []
   dataSource = new MatTableDataSource <any>(this.userData);
 
 
 
-
   displayedColumns: string[] = ['select','index','id', 'name', 'type','dob','address','email', 'password'];
   constructor(private account :AccountService) {
+
     const token = localStorage.getItem('token');
+    const account_type = localStorage.getItem('account_type');
+
     if (token) {
       this.isAuth = true;
     }
     else {
       this.isAuth = false;
     }
+
+    if (account_type == "admin") {
+      this.isEmployee  = true;
+    }
+    else {
+      this.isEmployee = false
+    }
+    
   }
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -38,6 +56,11 @@ export class ManageUserComponent implements AfterViewInit {
 
 
   ngOnInit(): void {
+  
+    this.titleService.setTitle(this.title);
+
+    console.log("account type: ",localStorage.getItem('account_type'))
+    console.log("check: ",this.isEmployee);
       this.account.getAllInfo().subscribe((data:any)=>{
          this.userData = data.users
         this.dataSource = new MatTableDataSource(this.userData)
