@@ -19,6 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
     SignupComponent,
     PolicyComponent,
     TestComponent,
-    ProfileComponent
+    ProfileComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     MatIconModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

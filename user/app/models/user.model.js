@@ -5,9 +5,9 @@ mongoose.plugin(slug);
 const Schema = mongoose.Schema
 
 const User = new Schema({
-    name: {type: String,},
-    email: {type: String,},
-    password: {type: String,},
+    name: {type: String,default:'Guest'},
+    email: {type: String,default:'example@mail.com'},
+    password: {type: String,default:'123abc'},
     type: {type:String, default:'customer'},
     roombooked:[{type:String,default:'Empty',ref:'Room'}],
     servicebooked:[{type:String,default:'Empty',ref:'Service'}],

@@ -40,7 +40,20 @@ export class AccountService {
       httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
     return this.http.get(api+'user/list/',httpOptions);
   }
+  delUser(uid:any):Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
 
+    return this.http.delete(api+'user/delete/'+uid,httpOptions);
+  }
+  updateAllUser(data:any):Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    return this.http.patch(api+'user/update/',data,httpOptions);
+  }
+  genUser():Observable<any>{
+    return this.http.post(api+'account/add',"{}");
+  }
 }
 
 

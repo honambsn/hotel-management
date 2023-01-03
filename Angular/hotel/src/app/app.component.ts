@@ -11,11 +11,11 @@ export class AppComponent {
   constructor(private titleService: Title, private router: Router) {
 
     // const token = localStorage.getItem('token');
-    
+
     // console.log(token);
   }
   ngOnInit(){
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
     this.titleService.setTitle(this.title);
   }
 }
