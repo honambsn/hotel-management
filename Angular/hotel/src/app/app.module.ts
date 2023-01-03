@@ -21,6 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
@@ -50,6 +52,7 @@ import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModu
     MatIconModule,
     MatTableModule,
     MatCheckboxModule,
+    MatPaginatorModule,
     DateRangePickerModule,
   ],
   providers: [],

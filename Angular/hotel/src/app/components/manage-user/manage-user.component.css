@@ -1,5 +1,6 @@
   table{
     margin-top: 10%;
+
   }
   .mat-column-select {
     overflow: initial;
@@ -9,4 +10,11 @@
     margin-top: 5%;
     margin-right: 10px;
 
+  }
+  mat-paginator{
+    margin:auto;
+    margin-top: 5%;
+  }
+  table-user{
+    margin-right: 10%;
   }

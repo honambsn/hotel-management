@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
   }
   // check xem token co hop le hay khong de access vao book list
   constructor(private account :AccountService, private titleService:Title) {
-    
+
     const token = localStorage.getItem('token');
     if (token) {
       this.isAuth = true;
@@ -47,6 +47,7 @@ export class ProfileComponent implements OnInit {
     this.titleService.setTitle(this.title)
     console.log(localStorage.getItem("uid"))
     this.account.getInfo(localStorage.getItem("uid")).subscribe((data:any)=>{
+      //console.log(data)
       this.name = data.users.name
       this.email = data.users.email
       this.pass = data.users.password

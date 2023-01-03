@@ -13,6 +13,7 @@ import { Title } from '@angular/platform-browser';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { RoomComponent } from './components/room/room.component';
 const routes: Routes = [
+{path:'',component:HomeComponent},
 {path:'home',component:HomeComponent},
 {path:'login',component:LoginComponent},
 {path:'book',component:BookComponent},

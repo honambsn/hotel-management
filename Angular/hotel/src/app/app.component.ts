@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(private titleService: Title, private router: Router) {
 
     // const token = localStorage.getItem('token');
-    
+
     // console.log(token);
   }
   
