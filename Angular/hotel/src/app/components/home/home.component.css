@@ -76,7 +76,10 @@
   }
   
   /* Increase the font size of the heading */
-  
+  .stickybar-info
+  {
+    margin-top: 10px;
+  }
   .header-button{
     border: none;
     margin-left: 400px;
@@ -85,6 +88,29 @@
     padding: 15px 15px 15px 15px;
     font-size: 18px;
     background-color: black;
+  }
+  .sticky-button
+  {
+    border: none;
+   margin-left: 50px;
+    border-radius: 20px;
+    margin-top: 15px;
+   
+    padding: 20px 30px 20px 30px;
+    font-size: 18px;
+    background-color: black;
+  }
+  .findHotel-info
+  {
+    color:white;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .stickybar-info
+  {
+    margin-left: 50px;
+    font-size: 20px;
+    color: white;
   }
   .featured{
 
@@ -223,7 +249,7 @@
   
 .DateRange
 {
-  
+  margin-top: 10px;
   height: 100px;
   width: 300px;
   margin-right: auto;
@@ -234,7 +260,7 @@
 .sticky-bar
 {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   position: -webkit-sticky;
   position: sticky;
   background-color: white;
