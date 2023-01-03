@@ -15,7 +15,7 @@ export class AppComponent {
     // console.log(token);
   }
   ngOnInit(){
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
     this.titleService.setTitle(this.title);
   }
 }
