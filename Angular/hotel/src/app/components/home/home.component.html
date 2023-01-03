@@ -27,20 +27,25 @@
 
 <div class="sticky-bar">
  
+<div class="stickybar-info">
+  <i class="fa-sharp fa-solid fa-location-dot"></i>
+  Destination
+
+  <div> Where can we take you?</div>
+</div>
+
   <div class="DateRange">
     <ejs-daterangepicker placeholder="Select the date range "
     [startDate] = "startDateValue"
     [endDate] = "endDateValue"  ></ejs-daterangepicker>
+    From date {{startDateValue}} to {{endDateValue}}
   </div>
 
-  <!-- <div class="people">
-    <div><i class="fa-sharp fa-solid fa-person"></i>Adult<button (click) = "counter_minus()"> <i class="fa-solid fa-minus"></i></button> <button (click) = "counter_plus()"><i class="fa-solid fa-plus"></i></button><p class="counter" >Count : {{count}}</p> </div>
-    <div><i class="fa-solid fa-children"></i>Chidrent</div>
-    <div><i class="fa-solid fa-house-user"></i>Room</div>
-  </div> -->
+
 
   <div class="findHotel-info">
     
+    <button class="sticky-button">Search</button>
   </div>
 </div>
 
