@@ -8,6 +8,7 @@ mat-form-field {
   width: 69%;
   border-style: solid;
   font-size: 20px;
+  margin-bottom: 30px;
 }
 mat-label{
   color:black;
