@@ -9,6 +9,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
   title = "Login";
 
@@ -34,12 +35,20 @@ export class LoginComponent {
       password: ['', Validators.required],
     })
   }
+
+   displaye_1() {
+    
+    
+  }
+
+  
   onLogin(){
 
     if (this.formLogin.invalid){
       alert("this.formLogin.invalid");
       return false;
     }
+   
     console.log(this.formLogin.value);
     this.account.login(this.formLogin.value).subscribe((res:any) =>{
       console.log("result",res)
@@ -47,7 +56,7 @@ export class LoginComponent {
         // lưu thông tin đăng nhập (ở đây là mã token) vào local storage
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('uid',res.data.user._id);
-        alert("dang nhap thanh cong");
+       alert()
         //sau khi đăng nhập thì chuyển hướng về home
         this.router.navigate(['/profile']);
       }
@@ -57,6 +66,9 @@ export class LoginComponent {
       console.log(res);
     })
     return true;
-
   }
+
+  
 }
+
+
