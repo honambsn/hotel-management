@@ -13,22 +13,37 @@ export class ManageUserComponent {
   title = "Manage User";
   isEdit:boolean = false;
   isAuth:boolean = false;
+  isEmployee: boolean = false
 
   userData : any = []
   dataSource = new MatTableDataSource <any>(this.userData);
   displayedColumns: string[] = ['id', 'name', 'email', 'password'];
   constructor(private account :AccountService, private titleService:Title) {
     const token = localStorage.getItem('token');
+    const account_type = localStorage.getItem('account_type');
+
     if (token) {
       this.isAuth = true;
     }
     else {
       this.isAuth = false;
     }
+
+    if (account_type == "admin") {
+      this.isEmployee  = true;
+    }
+    else {
+      this.isEmployee = false
+    }
+    
   }
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
+
+    console.log("account type: ",localStorage.getItem('account_type'))
+    console.log("check: ",this.isEmployee);
+    
     this.account.getAllInfo().subscribe((data:any)=>{
       console.log(data.users)
       this.dataSource = new MatTableDataSource(data.users)
