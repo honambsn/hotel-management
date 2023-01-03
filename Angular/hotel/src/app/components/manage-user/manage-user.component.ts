@@ -40,8 +40,10 @@ export class ManageUserComponent {
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
+
     console.log("account type: ",localStorage.getItem('account_type'))
     console.log("check: ",this.isEmployee);
+    
     this.account.getAllInfo().subscribe((data:any)=>{
       console.log(data.users)
       this.dataSource = new MatTableDataSource(data.users)
