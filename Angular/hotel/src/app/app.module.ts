@@ -1,3 +1,4 @@
+import { RoomComponent } from './components/room/room.component';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     PolicyComponent,
     TestComponent,
     ProfileComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    RoomComponent,
   ],
   imports: [
     BrowserModule,

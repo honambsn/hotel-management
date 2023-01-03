@@ -1,0 +1,122 @@
+<div *ngIf="isAuth">
+  <div *ngIf="isEmployee">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+    </ng-container>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+      <!-- <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+      </ng-container> -->
+  
+      <ng-container   matColumnDef="select" *ngIf="isEdit">
+        
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row) ">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+  
+  
+      
+      
+        <!-- Position Column -->
+  
+        <ng-container matColumnDef="slug">
+          
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="id">
+          
+          <th mat-header-cell *matHeaderCellDef> ID. </th>
+          <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+          
+        </ng-container>
+        
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="room_no">
+          <th mat-header-cell *matHeaderCellDef> Room number </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.room_no" type="text" /> </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="room_type">
+          <th mat-header-cell *matHeaderCellDef> Room type </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled]="!selection.isSelected(row)" [(ngModel)]="element.room_type" type="text" /> </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.price" type="text" /> </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="room_status">
+          <th mat-header-cell *matHeaderCellDef> Room status </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.room_status" type="text" /> </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="clean_status">
+          <th mat-header-cell *matHeaderCellDef> Clean status </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.clean_status" type="text" /> </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="createAt">
+          <th mat-header-cell *matHeaderCellDef> Create date </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.createAt" type="text" /> </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="updateAt">
+          <th mat-header-cell *matHeaderCellDef> Update date </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.updateAt" type="text" /> </td>
+        </ng-container>
+  
+        <!-- <ng-container matColumnDef="room_image">
+          <th mat-header-cell *matHeaderCellDef> Room image </th>
+          <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.room_image" type="text" /> </td>
+        </ng-container> -->
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row) "></tr> -->
+    </table>
+    <button class="edit_data" mat-raised-button color="accent" disabled={{isEdit}} (click) = "editInfo()">Edit</button>
+    <button class="delete_data" mat-raised-button color="accent" >Delete</button>
+    <button class="add_data" mat-raised-button color="accent" >Add</button>
+    <button class="save_data" mat-raised-button color="accent" (click) = "saveInfo()">Save</button>
+  </div>
+
+  <div *ngIf!="isEmployee">
+    <br>
+    <br>
+    <br>
+    <br>  
+    <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <p><strong>404</strong></p> 
+  </div>
+  </div>
+</div>
+
