@@ -17,5 +17,13 @@ export class HomeComponent {
   }
   public startDateValue : Date = new Date(2022, 5, 13);
   public endDateValue : Date = new Date(2022, 5, 15);
-  
+  // count = 0;
+  // counter_plus()
+  // {
+  //   this.count++
+  // }
+  // counter_minus()
+  // {
+  //   this.count--
+  // }
 }
