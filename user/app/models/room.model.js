@@ -21,8 +21,8 @@ const Room = new Schema({
     room_status: {type: String,default:'Empty'},
     clean_status: {type: String,default:'Clean'},
     slug:{type: String,slug:'room_no',unique: true},
-    checkInAt: {type: Date,default: Date.now},
-    checkOutAt: {type: Date,default: Date.now},
+    checkInAt: {type: String,default: 'null'},
+    checkOutAt: {type: String,default: 'null'},
 })
 
 

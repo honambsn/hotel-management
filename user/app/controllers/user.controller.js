@@ -3,6 +3,9 @@ var JWT = require('../common/_JWT');
 var Room = require('../models/room.model');
 var Service = require('../models/service.model')
 var userService = require('../common/userServices');
+var moment = require('moment');
+var bookController = require('../controllers/book.controller');
+var Book = require('../models/book.model');
 
 class userController{
     get_list(req, res,next){
@@ -69,17 +72,22 @@ class userController{
         })
     }
 
-    add_bookedroom_to_user(req,res,next){
+    async add_bookedroom_to_user(req,res,next){
         const {_id} = req.body
+        const fromDate = moment(req.body.checkInAt,'DD/MM/YYYY')
+        const toDate = moment(req.body.checkOutAt,'DD/MM/YYYY')
+        const DayAmount = moment.duration(toDate.diff(fromDate)).asDays()
+        console.log(DayAmount)
         userService.check_room_status({_id},async(error,result)=>{
             if(error) {
                 return next(error)
             }
             if(result==true){
-            const room = await Room.findByIdAndUpdate(req.body,{room_status:'Booked'})
+            const room = await Room.findByIdAndUpdate({_id},{room_status:'Booked',checkInAt:req.body.checkInAt,checkOutAt:req.body.checkOutAt})
             const user = await User.findById(req.params.id)
             user.roombooked.push(room._id)
             user.save()
+            bookController.add_book_item(room,user,DayAmount,fromDate,toDate)
             return res.status(200).json({user})
             }
             else{
@@ -89,12 +97,12 @@ class userController{
     }
 
     async cancel_room(req,res,next){
-        const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
+        const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty',checkInAt:null,checkOutAt:null})
         const user = await User.findById(req.params.id)
         const removeditem = user.roombooked.indexOf(room._id)
-        console.log(room._id)
         user.roombooked.splice(removeditem,1)
         user.save()
+        bookController.delete_book_item(room,user,next)
         return res.status(200).json({user})
     }
 
