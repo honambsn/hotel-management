@@ -102,7 +102,7 @@ class userController{
         const removeditem = user.roombooked.indexOf(room._id)
         user.roombooked.splice(removeditem,1)
         user.save()
-        bookController.delete_book_item(room,user,next)
+        bookController.add_cancel_item(room,user,next)
         return res.status(200).json({user})
     }
 

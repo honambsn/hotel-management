@@ -21,9 +21,11 @@ class bookController{
         user.payment += book.price
     }       
 
-    async delete_book_item(room,user,next){
+    async add_cancel_item(room,user,next){
         //var payment = user.payment - book.price
-        const book = await Book.find({room_id:room._id,user_booking_id:user._id})
+        const book = await Book.findOneAndUpdate({room_id:room._id,user_booking_id:user._id,room_status:'Booked'},{room_status:'Cancelled'})
+        user.payment -= book.price
+        await user.save()
     }
 }
 module.exports = new bookController
