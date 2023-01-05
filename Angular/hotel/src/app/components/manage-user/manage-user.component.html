@@ -1,7 +1,10 @@
 
 <div *ngIf="isAuth">
   <div *ngIf="isEmployee">
-    
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. name,type,..." #input>
+    </mat-form-field>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -75,7 +78,9 @@
     <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"
     (click)="selection.toggle(row) "></tr> -->
   </table>
-
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
   <mat-paginator  [pageSizeOptions]="[5,10,25]"
                  showFirstLastButtons
                  aria-label="Select page of periodic elements">

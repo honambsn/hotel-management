@@ -1,5 +1,6 @@
   table{
-    margin-top: 10%;
+    margin-top: 10px;
+    margin-left: -20%;
 
   }
   .mat-column-select {
@@ -17,4 +18,8 @@
   }
   table-user{
     margin-right: 10%;
+  }
+  mat-form-field{
+    margin-top:10%;
+    width: 60%;
   }

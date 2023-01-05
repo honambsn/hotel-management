@@ -6,7 +6,7 @@ import { AccountService } from 'src/app/services/account/account.service';
 import {MatPaginator} from '@angular/material/paginator';
 import { JsonpClientBackend } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
-import { Component } from '@angular/core';
+
 
 
 
@@ -30,7 +30,7 @@ export class ManageUserComponent implements AfterViewInit {
 
 
   displayedColumns: string[] = ['select','index','id', 'name', 'type','dob','address','email', 'password'];
-  constructor(private account :AccountService) {
+  constructor(private account :AccountService, private titleService:Title) {
 
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
@@ -48,7 +48,7 @@ export class ManageUserComponent implements AfterViewInit {
     else {
       this.isEmployee = false
     }
-    
+
   }
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -56,7 +56,7 @@ export class ManageUserComponent implements AfterViewInit {
 
 
   ngOnInit(): void {
-  
+
     this.titleService.setTitle(this.title);
 
     console.log("account type: ",localStorage.getItem('account_type'))
@@ -161,6 +161,11 @@ export class ManageUserComponent implements AfterViewInit {
       console.log(data)
     })
     location.reload();
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
