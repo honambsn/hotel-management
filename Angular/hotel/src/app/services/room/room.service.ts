@@ -28,5 +28,15 @@ export class RoomService {
     console.log("got")
     return this.http.get(api + 'room/detail/' +uid, httpOptions);
   }
+  updateData(uid:any, data:any):Observable<any>{
+    return this.http.patch(api + 'room/update/' + uid,data,httpOptions );
+  }
+  delRoom(uid:any):Observable<any>{
+    httpOptions.headers = httpOptions.headers.set('Authorization',localStorage.getItem('token') as string);
+    return this.http.delete(api + 'room/delete/' + uid, httpOptions);
+  }
+  addRoom(data:any):Observable<any>{
+    return this.http.post(api + 'room/add/',data);
+  }
 
 }

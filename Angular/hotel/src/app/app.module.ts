@@ -24,6 +24,12 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
+import { FilterPipe } from './components/room/search/filter.pipe';
+import { SearchRoomComponent } from './components/room/search/search-room/search-room.component';
+import { HighlightDirective } from './components/room/search/highlight.pipe';
+import { RoominfoComponent } from './components/room/roominfo/roominfo.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +43,11 @@ import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModu
     ProfileComponent,
     ManageUserComponent,
     RoomComponent,
+    FilterPipe,
+    SearchRoomComponent,
+    HighlightDirective,
+    RoominfoComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,

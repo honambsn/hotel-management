@@ -7,9 +7,6 @@ import {MatPaginator} from '@angular/material/paginator';
 import { JsonpClientBackend } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 
-
-
-
 @Component({
   selector: 'app-manage-user',
   templateUrl: './manage-user.component.html',
@@ -26,15 +23,11 @@ export class ManageUserComponent implements AfterViewInit {
 
   userData : any = []
   dataSource = new MatTableDataSource <any>(this.userData);
-
-
-
   displayedColumns: string[] = ['select','index','id', 'name', 'type','dob','address','email', 'password'];
-  constructor(private account :AccountService, private titleService:Title) {
 
+constructor(private account :AccountService, private titleService:Title) {
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
-
     if (token) {
       this.isAuth = true;
     }
@@ -50,19 +43,21 @@ export class ManageUserComponent implements AfterViewInit {
     }
 
   }
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   @ViewChild(MatTable) table: MatTable<any>
 
 
   ngOnInit(): void {
-
     this.titleService.setTitle(this.title);
 
+
+    this.titleService.setTitle(this.title);
     console.log("account type: ",localStorage.getItem('account_type'))
     console.log("check: ",this.isEmployee);
       this.account.getAllInfo().subscribe((data:any)=>{
-         this.userData = data.users
+        this.userData = data.users
         this.dataSource = new MatTableDataSource(this.userData)
         this.dataSource.paginator = this.paginator;
 
@@ -70,7 +65,7 @@ export class ManageUserComponent implements AfterViewInit {
   }
 
   selection = new SelectionModel<any>(true, []);
-  isAllSelected() {
+    isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
@@ -120,7 +115,7 @@ export class ManageUserComponent implements AfterViewInit {
         })
       }
       this.selection.clear()
-      location.reload();
+      //location.reload();
     }
   }
 
@@ -160,7 +155,7 @@ export class ManageUserComponent implements AfterViewInit {
     this.account.signup(data).subscribe(data=>{
       console.log(data)
     })
-    location.reload();
+    //location.reload();
   }
 
   applyFilter(event: Event) {

@@ -1,4 +1,6 @@
 const Service = require('../models/service.model')
+var moment = require('moment')
+
 
 class serviceController{
     get_list(req,res,next){
@@ -19,21 +21,21 @@ class serviceController{
     }
 
     add_service(req, res,next){
-        const user = new Service(req.body)
-        user
+        const service = new Service(req.body)
+        service
             .save()
             .then(()=>res.json(req.body))
             .catch((error)=>{})
     }
 
     remove_service(req,res,next){
-        User.deleteOne({_id: req.params.id })
+        Service.deleteOne({_id: req.params.id })
             .then(services=>res.json({services}))
             .catch(next)
     }
 
     update_service(req, res,next){
-        Room.updateOne({_id: req.params.id },req.body)
+        Service.updateOne({_id: req.params.id },req.body)
             .then(services=>{
                 res.json({services})
             })

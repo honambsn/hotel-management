@@ -6,6 +6,7 @@ const Schema = mongoose.Schema
 
 const User = new Schema({
 
+
     name: {type: String,default:'Guest'},
     email: {type: String,default:'example@mail.com'},
     password: {type: String,default:'123abc'},
@@ -15,7 +16,8 @@ const User = new Schema({
     roombooked:[{type:String,default:'Empty',ref:'Room'}],
     servicebooked:[{type:String,default:'Empty',ref:'Service'}],
     payment: {type: Number},
-    slug:{type: String,slug:'name',unique: true},
+    point:{type:Number,default:0},
+    slug:{type: String,slug:'name',unique: true}
 })
 
 // const User = function(user){
