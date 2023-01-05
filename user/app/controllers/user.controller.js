@@ -134,6 +134,16 @@ class userController{
         return res.status(200).json({user})
     }
 
+    async resetpayment_addpoint(req,res,next){
+        const user = await User.findById(req.body._id)
+        user.point += user.payment*0.1
+        user.payment = 0
+        await user.save()
+        .then(()=>{
+            res.json(user)
+        })
+        .catch(next)     
+    }
 
     // async print_room(){
     //     const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})

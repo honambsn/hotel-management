@@ -14,6 +14,7 @@ const User = new Schema({
     roombooked:[{type:String,default:'Empty',ref:'Room'}],
     servicebooked:[{type:String,default:'Empty',ref:'Service'}],
     payment: {type: Number},
+    point:{type:Number,default:0},
     slug:{type: String,slug:'name',unique: true}
 })
 

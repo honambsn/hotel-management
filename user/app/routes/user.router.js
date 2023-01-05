@@ -22,5 +22,7 @@ module.exports = function(router) {
     router.post('/user/detail/:id/bookedservice',userController.add_bookedservice_to_user)
 
     router.post('/user/detail/:id/cancelservice',userController.cancel_service)
+
+    router.post('/user/resetaddpoint',userController.resetpayment_addpoint)
     //router.post('/user/login', userController.login);
 }
