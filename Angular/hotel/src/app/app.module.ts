@@ -1,3 +1,5 @@
+import { RoomComponent } from './components/room/room.component';
+import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,14 +12,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './components/signup/signup.component';
 import { PolicyComponent } from './components/policy/policy.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { TestComponent } from './components/test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
-import { MatIconModule } from '@angular/material/icon'
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+
+import { FilterPipe } from './components/room/search/filter.pipe';
+import { SearchRoomComponent } from './components/room/search/search-room/search-room.component';
+import { HighlightDirective } from './components/room/search/highlight.pipe';
+import { RoominfoComponent } from './components/room/roominfo/roominfo.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +40,15 @@ import { MatIconModule } from '@angular/material/icon'
     BookComponent,
     SignupComponent,
     PolicyComponent,
-    ProfileComponent
+    TestComponent,
+    ProfileComponent,
+    ManageUserComponent,
+    RoomComponent,
+    FilterPipe,
+    SearchRoomComponent,
+    HighlightDirective,
+    RoominfoComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +60,11 @@ import { MatIconModule } from '@angular/material/icon'
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
+    DateRangePickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

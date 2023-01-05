@@ -1,18 +1,25 @@
  /* Style the navigation bar */
- .navbar {
+ .navbarr {
     width: 100%;
     background-color: #ff8d6b;
     overflow: auto;
-    
+    z-index: 10;
     
   }
+  
+
+  .fa-arrow-right-to-bracket,.fa-home,.fa-user,.fa-gg-circle
+  {
+    padding-bottom: 12px;
+  }
+  /* mã màu của bonvoy #ff8d6b*/
   .components
   {
     float:right
   }
   
   /* Navbar links */
-  .navbar a {
+  .navbarr a {
     float: left;
     text-align: center;
     padding: 12px;
@@ -22,7 +29,7 @@
   }
   
   /* Navbar links on mouse-over */
-  .navbar a:hover {
+  .navbarr a:hover {
     background-color: #000;
   }
   
@@ -33,17 +40,17 @@
   
   /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
   @media screen and (max-width: 500px) {
-    .navbar a {
+    .navbarr a {
       float: none;
       display: block;
     }
   } 
   
-.navbar {
+.navbarr {
     position:fixed;
 }
 
-.navbar
+.navbarr
 {
   float: right;
 }
