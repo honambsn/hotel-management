@@ -145,6 +145,19 @@ class userController{
         .catch(next)     
     }
 
+
+    async reset_bookedroom_when_checkout(req,res,next){
+        const user = await User.findById(req.body._id)
+        user.roombooked.forEach(async(room,index,roombooked)=>{
+            room = await Room.findById(roombooked[index])
+            room.updateOne({room_status:'Empty',checkInAt:null,checkOutAt:null})
+            console.log(roombooked[index])
+        })
+        user.roombooked = []
+        await user.save()
+        res.send('Reset Success')
+    }
+
     // async print_room(){
     //     const room = await Room.findByIdAndUpdate(req.body,{room_status:'Empty'})
     //     const user = await User.findById(req.params.id)

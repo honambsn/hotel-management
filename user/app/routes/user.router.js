@@ -24,5 +24,7 @@ module.exports = function(router) {
     router.post('/user/detail/:id/cancelservice',userController.cancel_service)
 
     router.post('/user/resetaddpoint',userController.resetpayment_addpoint)
+
+    router.post('/user/resetroom',userController.reset_bookedroom_when_checkout)
     //router.post('/user/login', userController.login);
 }
