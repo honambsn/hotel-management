@@ -2,51 +2,31 @@ import { Title } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { RoomService } from 'src/app/services/room/room.service';
 import {MatTableDataSource} from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
+
   styleUrls: ['./test.component.css']
 })
 export class TestComponent {
-  title = "Test";
-  isAuth: boolean = false;
-  post: any;
-  room_detail:any;
-  roomData : any =[]
-  dataSource = new MatTableDataSource <any>(this.roomData);
-
-  constructor(private titleService:Title, private room:RoomService) {
-    const token = localStorage.getItem('token');
-    if (token) this.isAuth = true;
-    else this.isAuth = false;
-  }
+ departments = [
+  {"id":1, "name": 2},
+  {"id":2, "name": 2},
+  {"id":3, "name": 2},
+  {"id":4, "name": 2}]
   
-  ngOnInit():void{
-    this.titleService.setTitle(this.title); 
+  constructor(private router:Router){}
+  onSelect(department:any )  {
+    this.router.navigate(['/room-detail', department.id]);
     
-    //this.getAllRoom()
-    console.log('read 1');
-    this.getRoomDetail()
-  }
-  getAllRoom() {
-    this.room.getAllRoom().subscribe((res:any)=>{
-      this.post = res;
-      console.log(this.post);
-    })
-  }
-  getRoomDetail(){
-    var uid = '63a993c5f1c8730c9f65d612';
-    console.log("read  3")
-    this.room.getRoomDetail(uid).subscribe((res:any)=>{
-      console.log(Object.values(res));
-      this.room_detail = Object.values(res);
-      console.log("full data" , this.room_detail);
-      console.log(typeof(this.room_detail));
-      var tmp = this.room_detail[0];
-      console.log(Object.keys(tmp).length);
-      console.log(this.room_detail[0].room_img);
 
-    })
+    
   }
   
+
 }
+
