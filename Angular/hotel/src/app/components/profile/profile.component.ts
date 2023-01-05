@@ -44,8 +44,14 @@ export class ProfileComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.titleService.setTitle(this.title)
-    console.log(localStorage.getItem("uid"))
+    this.titleService.setTitle(this.title);
+    console.log(localStorage.getItem("uid"));
+    this.getInfo();
+    
+
+  }
+  getInfo()
+  {
     this.account.getInfo(localStorage.getItem("uid")).subscribe((data:any)=>{
       //console.log(data)
       this.name = data.users.name
@@ -55,11 +61,6 @@ export class ProfileComponent implements OnInit {
       this.dob = data.users.dob;
       this.address = data.users.address;
     })
-
-  }
-  getInfo()
-  {
-
   }
   editProfile()
   {
