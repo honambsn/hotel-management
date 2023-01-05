@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
@@ -21,11 +22,16 @@ export class ManageUserComponent implements AfterViewInit {
   isAuth:boolean = false;
   isEmployee: boolean = false
 
+  type = "text";
+  type2 = "password";
+  showPss:boolean = true
+
+
   userData : any = []
   dataSource = new MatTableDataSource <any>(this.userData);
   displayedColumns: string[] = ['select','index','id', 'name', 'type','dob','address','email', 'password'];
 
-constructor(private account :AccountService, private titleService:Title) {
+constructor(private account :AccountService, private titleService:Title, private router: Router) {
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
     if (token) {
@@ -51,7 +57,7 @@ constructor(private account :AccountService, private titleService:Title) {
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
-
+    
 
     this.titleService.setTitle(this.title);
     console.log("account type: ",localStorage.getItem('account_type'))
@@ -165,6 +171,21 @@ constructor(private account :AccountService, private titleService:Title) {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
 
+  }
+  onSelect(element:any) {
+    localStorage.setItem('user_detail',element._id)
+    this.router.navigate(['/user-detail', element._id]);
+  }
+
+  showPass() {
+    
+    console.log(this.showPss)
+    if (this.showPss) {
+      this.type = "text";
+
+    }
+    else this.type = "password";
+    this.showPss = !this.showPss;
   }
 
 }
