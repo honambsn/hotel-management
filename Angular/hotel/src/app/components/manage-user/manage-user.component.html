@@ -2,6 +2,7 @@
 <div *ngIf="isAuth">
   <div *ngIf="isEmployee">
     
+
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -85,6 +86,7 @@
   <button class="delete_data" mat-raised-button color="accent" (click) = "delUser()" >Delete</button>
   <button class="add_data" mat-raised-button color="accent" (click) = "addUser()" >Add</button>
   <button class="save_data" mat-raised-button color="accent" (click) = "updateUser()">Save</button>
+  <!-- <button  class="search_room" mat-raised-button color="accent"  (click) = "searchRoom()"> <i class="fa-solid fa-magnifying-glass"></i> Search room</button> -->
 
 
 </div>
