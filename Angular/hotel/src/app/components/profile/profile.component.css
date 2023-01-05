@@ -40,7 +40,16 @@ input{
   margin-right: 80px;
   background-color: red;
 }
-.closeChangePass
+.profile-pic
 {
+  position: relative;
+  height: 50%;
+  margin-left: 70%;
+  margin-top: -700px;
+  width: 50%;
+   
   
+}
+@media all and (max-width: 1200px) {
+  .profile-pic { display: none; }
 }
