@@ -12,6 +12,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 
+
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -30,6 +31,7 @@ export class RoomComponent implements AfterViewInit {
   roomData : any = []
   dataSource = new MatTableDataSource <any>(this.roomData);
   displayedColumns: string[] = ['select','index','id', 'room_no', 'room_type', 'price', 'room_status', 'clean_status', 'createAt', 'updateAt'];
+  
   constructor(private titleService:Title, private room : RoomService, private router: Router) {
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
@@ -169,6 +171,16 @@ export class RoomComponent implements AfterViewInit {
   }
   searchRoom() {
     this.router.navigate(['/search-room'])
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  }
+  onSelect(element:any) {
+    localStorage.setItem('room_detail',element._id)
+    this.router.navigate(['/room-detail', element._id]);
   }
 
 }

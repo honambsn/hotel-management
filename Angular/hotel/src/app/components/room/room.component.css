@@ -22,4 +22,7 @@ table-user{
   margin-right: 10%;
 }
 
-
+mat-form-field{
+  margin-top:10%;;
+  width: 60%;
+}
