@@ -1,3 +1,4 @@
+import { UserInfoComponent } from './components/manage-user/user-info/user-info.component';
 
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { RoominfoComponent } from './components/room/roominfo/roominfo.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
 {path:'search-room', component:SearchRoomComponent},
 {path:'room-detail/:id', component:RoominfoComponent},
 {path: '**', component:PagenotfoundComponent},
+{path:'user-detail', component: UserInfoComponent}
 ];
 
 
@@ -44,4 +46,5 @@ export class AppRoutingModule {}
 export const routingComponent  = [PagenotfoundComponent, 
                                   TestComponent,
                                   SearchRoomComponent,
+                                  RoomComponent,
                                   RoominfoComponent]
