@@ -1,0 +1,28 @@
+table{
+  margin-top: 10%;
+  margin-left: -27%;
+  
+
+}
+.mat-column-select {
+  overflow: initial;
+}
+button{
+  margin:auto;
+  margin-top: 5%;
+  margin-right: 10px;
+  margin-bottom:10%;
+
+}
+mat-paginator{
+  margin:auto;
+  margin-top: 5%;
+}
+table-user{
+  margin-right: 10%;
+}
+
+mat-form-field{
+  margin-top:10%;;
+  width: 60%;
+}

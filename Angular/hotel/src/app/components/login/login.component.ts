@@ -12,7 +12,7 @@ import { Title } from '@angular/platform-browser';
 
 export class LoginComponent {
   title = "Login";
-
+  
 
   formLogin: FormGroup;
   isAuth: boolean = false;
@@ -56,7 +56,10 @@ export class LoginComponent {
         // lưu thông tin đăng nhập (ở đây là mã token) vào local storage
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('uid',res.data.user._id);
-       alert("dang nhap thanh cong")
+        localStorage.setItem('account_type',res.data.user.type)
+        
+        console.log("account type: ", localStorage.getItem('account_type'));
+        alert("dang nhap thanh cong");
         //sau khi đăng nhập thì chuyển hướng về home
         this.router.navigate(['/profile']);
       }

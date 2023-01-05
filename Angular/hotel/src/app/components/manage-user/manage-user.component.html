@@ -1,6 +1,11 @@
+
 <div *ngIf="isAuth">
   <div *ngIf="isEmployee">
-    
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. name,type,..." #input>
+    </mat-form-field>
+
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -14,7 +19,12 @@
         </mat-checkbox>
       </th>
     </ng-container> -->
-    <ng-container   matColumnDef="select" *ngIf="isEdit">
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <ng-container   matColumnDef="select" >
       <th mat-header-cell *matHeaderCellDef>
         <mat-checkbox (change)="$event ? masterToggle() : null"
                       [checked]="selection.hasValue() && isAllSelected()"
@@ -32,25 +42,36 @@
     <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID. </th>
-      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+      <td mat-cell *matCellDef="let element" (click)="onSelect(element )" style="color:blue;text-decoration-line: underline;"> {{element._id}} </td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.name" type="text" /> </td>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.name" type="text" /> </td>
     </ng-container>
-
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.type" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="dob">
+      <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)"  [(ngModel)]="element.dob" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.address" type="text" /> </td>
+    </ng-container>
     <!-- Weight Column -->
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element, let row"><input [disabled]="!selection.isSelected(row)" [(ngModel)]="element.email" type="text" /> </td>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled]="!checkEdit(row)" [(ngModel)]="element.email" type="text" /> </td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="password">
       <th mat-header-cell *matHeaderCellDef> Password </th>
-      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!selection.isSelected(row)" [(ngModel)]="element.password" type="password" /> </td>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.password" type={{this.type}} /> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -58,10 +79,21 @@
     <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"
     (click)="selection.toggle(row) "></tr> -->
   </table>
-  <button class="edit_data" mat-raised-button color="accent" disabled={{isEdit}} (click) = "editInfo()">Edit</button>
-  <button class="delete_data" mat-raised-button color="accent" >Delete</button>
-  <button class="add_data" mat-raised-button color="accent" >Add</button>
-  <button class="save_data" mat-raised-button color="accent" (click) = "saveInfo()">Save</button>
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+  <mat-paginator  [pageSizeOptions]="[5,10,25]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
 
-  </div>
+  <button class="edit_data" mat-raised-button color="accent" disabled={{isEdit}} (click) = "editUser()">Edit</button>
+  <button class="delete_data" mat-raised-button color="accent" (click) = "delUser()" >Delete</button>
+  <button class="add_data" mat-raised-button color="accent" (click) = "addUser()" >Add</button>
+  <button class="save_data" mat-raised-button color="accent" (click) = "updateUser()">Save</button>
+  <button class="show_pass" mat-raised-button color="accent" (click) = "showPass()">Show/hide password</button>
+  
+  <!-- <button  class="search_room" mat-raised-button color="accent"  (click) = "searchRoom()"> <i class="fa-solid fa-magnifying-glass"></i> Search room</button> -->
+
+
 </div>

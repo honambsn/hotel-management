@@ -1,0 +1,101 @@
+
+<div *ngIf="isAuth">
+  <div *ngIf="isEmployee">
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. name,type,..." #input>
+    </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+    </ng-container> -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <ng-container   matColumnDef="select" >
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row; let i = index">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row) ">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id" class="id">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <td mat-cell *matCellDef="let element" (click)="onSelect(element )" style="color:blue;text-decoration-line: underline;"> {{element._id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="room_no">
+      <th mat-header-cell *matHeaderCellDef> Room number </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.room_no" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="room_type">
+      <th mat-header-cell *matHeaderCellDef> Room type </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.room_type" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Price </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)"  [(ngModel)]="element.price" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="room_status">
+      <th mat-header-cell *matHeaderCellDef> Room status </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.room_status" type="text" /> </td>
+    </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="clean_status">
+      <th mat-header-cell *matHeaderCellDef> Clean status </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled]="!checkEdit(row)" [(ngModel)]="element.clean_status" type="text" /> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createAt">
+      <th mat-header-cell *matHeaderCellDef> createAt</th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled]="!checkEdit(row)" [(ngModel)]="element.createAt" type="text" /> </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="updateAt">
+      <th mat-header-cell *matHeaderCellDef> updateAt </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.updateAt" type="text" /> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    (click)="selection.toggle(row) "></tr> -->
+  </table>
+<!-- 
+  <mat-paginator  [pageSizeOptions]="[5,10,25]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator> -->
+
+  <button class="edit_data" mat-raised-button color="accent" disabled={{isEdit}} (click) = "editRoom()">Edit</button>
+  <button class="delete_data" mat-raised-button color="accent" (click) = "delRoom()" >Delete</button>
+  <button class="add_data" mat-raised-button color="accent" (click) = "addRoom()" >Add</button>
+  <button class="save_data" mat-raised-button color="accent" (click) = "updateRoom()">Save</button>
+  <button  class="search_room" mat-raised-button color="accent"  (click) = "searchRoom()"> <i class="fa-solid fa-magnifying-glass"></i> Search room</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>

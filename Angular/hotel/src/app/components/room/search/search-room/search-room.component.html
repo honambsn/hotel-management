@@ -1,0 +1,39 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container text-center">
+  <h1>{{title}}</h1>
+</div>
+<div class="container">
+  <div class="content" role="main">
+    <div class="card">
+      <div class="form-group">
+        <label for="search-text">Search Text</label>
+        <input type="text" class="form-control" id="search-text" aria-describedby="search-text" 
+          [(ngModel)]="searchText" placeholder="Enter text to search" 
+          autofocus>
+      </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Room no</th>
+        <th>Room status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr (click)="onSelect(r )" *ngFor="let r of rooms | appFilter: searchText">
+        <td>{{r._id}}</td>
+        <td>{{r.room_no}}</td>
+        <!-- <td><a href="/localhost:4200/">{{c.room_status}}</a></td> -->
+        <!-- <td><a href="http://localhost:4200/room-detail/{{r._id}} ">{{r.room_status}}</a></td> -->
+        <td class = "test">{{r.room_status}}</td>
+
+        
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
