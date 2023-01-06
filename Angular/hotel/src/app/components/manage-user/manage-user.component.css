@@ -1,6 +1,7 @@
   table{
     margin-top: 10px;
-    margin-left: -35%;
+    margin-left: -30%;
+    
 
   }
   .mat-column-select {
@@ -24,4 +25,27 @@
   mat-form-field{
     margin-top:10%;
     width: 70%;
+  }
+
+  /* .mat-mdc-table,.mdc-data-table__table, .cdk-table, .mat-elevation-z8
+  {
+     table-layout:fixed;
+    
+    width: 169% !important;
+   
+    
+  } */
+  .mat-mdc-table,.mdc-data-table__table, .cdk-table, .mat-elevation-z8
+  {
+    
+  }
+  table 
+  {
+      /* table-layout:fixed;
+      width:177%;
+    overflow-x:hu; */
+  }
+  .ng-untouched, .ng-pristine
+  {
+    width: 150px;
   }
