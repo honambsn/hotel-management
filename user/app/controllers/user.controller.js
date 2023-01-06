@@ -106,32 +106,23 @@ class userController{
         return res.status(200).json({user})
     }
 
-    add_bookedservice_to_user(req,res,next){
-        const {_id} = req.body
-        userService.check_service_status({_id},async(error,result)=>{
-            if(error) {
-                return next(error)
-            }
-            if(result==true){
-            const service = await Service.findByIdAndUpdate(req.body,{service_status:'Booked'})
-            const user = await User.findById(req.params.id)
-            user.servicebooked.push(service._id)
-            user.save()
-            return res.status(200).json({user})
-            }
-            else{
-            res.send('this service was already booked')
-            }
-        })
+    async add_bookedservice_to_user(req,res,next){
+        const user = await User.findById(req.params.id)
+        const service = await Service.findById(req.body)
+        user.servicebooked.push(service.type_of_service)
+        bookController.add_bookservice_item(service,user)
+        await user.save()
+        res.json({user})
     }
 
     async cancel_service(req,res,next){
-        const service = await Service.findByIdAndUpdate(req.body,{service_status:'Empty'})
+        const service = await Service.findById(req.body)
         const user = await User.findById(req.params.id)
-        const removeditem = user.servicebooked.indexOf(service._id)
-        user.roombooked.splice(removeditem,1)
-        user.save()
-        return res.status(200).json({user})
+        const removeditems = user.servicebooked.indexOf(service.type_of_service)
+        user.servicebooked.splice(removeditems,1)
+        bookController.add_cancelservice_item(service,user)
+        await user.save()
+        res.json({user})
     }
 
     async resetpayment_addpoint(req,res,next){
@@ -150,8 +141,10 @@ class userController{
         const user = await User.findById(req.body._id)
         user.roombooked.forEach(async(room,index,roombooked)=>{
             room = await Room.findById(roombooked[index])
-            room.updateOne({room_status:'Empty',checkInAt:null,checkOutAt:null})
-            console.log(roombooked[index])
+            room.room_status = 'Empty'
+            room.checkInAt = null
+            room.checkOutAt = null
+            await room.save()
         })
         user.roombooked = []
         await user.save()
