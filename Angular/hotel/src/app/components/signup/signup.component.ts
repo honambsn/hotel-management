@@ -1,5 +1,5 @@
 import { Title } from '@angular/platform-browser';
-import { AccountService } from './../../services/account.service';
+import { AccountService } from 'src/app/services/account/account.service';
 import { Component } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';

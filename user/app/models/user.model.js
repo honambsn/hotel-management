@@ -5,6 +5,8 @@ mongoose.plugin(slug);
 const Schema = mongoose.Schema
 
 const User = new Schema({
+
+
     name: {type: String,default:'Guest'},
     email: {type: String,default:'example@mail.com'},
     password: {type: String,default:'123abc'},

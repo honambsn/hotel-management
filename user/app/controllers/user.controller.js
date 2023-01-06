@@ -72,7 +72,9 @@ class userController{
         })
     }
 
+
     async add_bookedroom_to_user(req,res,next){
+
         const {_id} = req.body
         const fromDate = moment(req.body.checkInAt,'DD/MM/YYYY')
         const toDate = moment(req.body.checkOutAt,'DD/MM/YYYY')
