@@ -176,7 +176,11 @@
   .fpName{
     color: #333;
     font-weight: bold;
+
   }
+  .fpName:hover {
+    text-decoration: underline;
+}
   
   .fpCity{
     font-weight: 300;
