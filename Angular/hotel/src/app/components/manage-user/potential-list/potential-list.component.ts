@@ -191,4 +191,8 @@ constructor(private account :AccountService, private titleService:Title, private
     else this.type = "password";
     this.showPss = !this.showPss;
   }
+
+  showAllUser() {
+    this.router.navigate(['/manage-user']);
+  }
 }
