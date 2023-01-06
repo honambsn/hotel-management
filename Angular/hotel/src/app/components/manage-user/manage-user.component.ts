@@ -28,8 +28,9 @@ export class ManageUserComponent implements AfterViewInit {
 
 
   userData : any = []
+  
   dataSource = new MatTableDataSource <any>(this.userData);
-  displayedColumns: string[] = ['select','index','id', 'name', 'type','dob','address','email', 'password'];
+  displayedColumns: string[] = ['select','index','id', 'name', 'type','dob','address','email', 'password', 'point', 'payment'];
 
 constructor(private account :AccountService, private titleService:Title, private router: Router) {
     const token = localStorage.getItem('token');
@@ -121,7 +122,7 @@ constructor(private account :AccountService, private titleService:Title, private
         })
       }
       this.selection.clear()
-      //location.reload();
+      location.reload();
     }
   }
 
@@ -186,6 +187,10 @@ constructor(private account :AccountService, private titleService:Title, private
     }
     else this.type = "password";
     this.showPss = !this.showPss;
+  }
+  
+  potentialCus() {
+
   }
 
 }
