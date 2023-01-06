@@ -37,6 +37,15 @@
     <hr>
   <mat-form-field >
     <mat-label> Clean status</mat-label>
-    <input matInput disabled={{!edit}} placeholder="{{roomDetail.clean_status}}" [(ngModel)]="roomDetail.clean_status">
+    <input  matInput disabled={{!edit}} placeholder="{{roomDetail.clean_status}}" [(ngModel)]="roomDetail.clean_status">
   </mat-form-field>
+
+
+
+  
+  <button class="delete_data" mat-raised-button color="accent" (click)= "testService()" >Book service</button>
+  <!-- <button class="add_data" mat-raised-button color="accent" (click) = "addUser()" >Add</button>
+  <button class="save_data" mat-raised-button color="accent" (click) = "updateUser()">Save</button>
+  <button class="show_pass" mat-raised-button color="accent" (click) = "showPass()">Show/hide password</button>
+  <button class="show_potentialUser" mat-raised-button color="accent" (click) = "potentialCus()">Show potential user</button> -->
 </div>

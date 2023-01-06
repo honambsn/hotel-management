@@ -31,7 +31,7 @@ export class RoominfoComponent {
   roomDetail: any
   roomData : any = [];
 
-  constructor(private titleService:Title, private room : RoomService, private router: Router, private route: ActivatedRoute) {
+  constructor(private titleService:Title, private room : RoomService, private router: Router, private route: ActivatedRoute, private account:AccountService) {
 
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
@@ -71,5 +71,9 @@ export class RoominfoComponent {
   //     this.clean_status =  data.rooms.clean_status
   //   })
   // }
-
+  testService() {
+    var service_uid = "63b8060a8b02574e6ea10311"
+    this.account.addService(localStorage.getItem('uid'), service_uid)
+    console.log("booked")
+  }
 }
