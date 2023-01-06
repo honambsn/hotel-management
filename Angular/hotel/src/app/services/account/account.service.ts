@@ -54,6 +54,14 @@ export class AccountService {
   genUser():Observable<any>{
     return this.http.post(api+'account/add',"{}");
   }
+
+  addService(user_uid:any,service_uid:any):Observable<any> {
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    var path = 'user/detail/'+user_uid +"/" +"addservice"
+    console.log(api + path + service_uid)
+    return this.http.post(api + path,service_uid, httpOptions);
+  }
 }
 
 
