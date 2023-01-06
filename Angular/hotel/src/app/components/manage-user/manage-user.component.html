@@ -1,6 +1,7 @@
 
 <div *ngIf="isAuth">
   <div *ngIf="isEmployee">
+ 
     <mat-form-field>
       <mat-label>Search</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. name,type,..." #input>
