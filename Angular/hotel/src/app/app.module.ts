@@ -29,6 +29,7 @@ import { SearchRoomComponent } from './components/room/search/search-room/search
 import { HighlightDirective } from './components/room/search/highlight.pipe';
 import { RoominfoComponent } from './components/room/roominfo/roominfo.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { PotentialListComponent } from './components/manage-user/potential-list/potential-list.component';
 import { UserInfoComponent } from './components/manage-user/user-info/user-info.component';
 
 
@@ -49,6 +50,7 @@ import { UserInfoComponent } from './components/manage-user/user-info/user-info.
     HighlightDirective,
     RoominfoComponent,
     PagenotfoundComponent,
+    PotentialListComponent,
     UserInfoComponent,
   ],
   imports: [

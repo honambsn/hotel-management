@@ -1,3 +1,4 @@
+import { PotentialListComponent } from './components/manage-user/potential-list/potential-list.component';
 import { UserInfoComponent } from './components/manage-user/user-info/user-info.component';
 
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
@@ -31,8 +32,8 @@ const routes: Routes = [
 {path:'manage-room', component:RoomComponent},
 {path:'search-room', component:SearchRoomComponent},
 {path:'room-detail/:id', component:RoominfoComponent},
-{path: '**', component:PagenotfoundComponent},
-{path:'user-detail', component: UserInfoComponent}
+{path:'potential-list', component:PotentialListComponent},
+{path:'user-detail/:id', component: UserInfoComponent}
 ];
 
 
@@ -47,4 +48,5 @@ export const routingComponent  = [PagenotfoundComponent,
                                   TestComponent,
                                   SearchRoomComponent,
                                   RoomComponent,
+                                  ManageUserComponent,
                                   RoominfoComponent]

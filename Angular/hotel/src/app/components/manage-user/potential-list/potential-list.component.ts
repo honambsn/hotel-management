@@ -1,23 +1,18 @@
-import { Router } from '@angular/router';
-
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import {SelectionModel} from '@angular/cdk/collections';
-import {MatTable, MatTableDataSource} from '@angular/material/table';
+import { SelectionModel } from '@angular/cdk/collections';
 import { AccountService } from 'src/app/services/account/account.service';
-import {MatPaginator} from '@angular/material/paginator';
-import { JsonpClientBackend } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-manage-user',
-  templateUrl: './manage-user.component.html',
-  styleUrls: ['./manage-user.component.css']
+  selector: 'app-potential-list',
+  templateUrl: './potential-list.component.html',
+  styleUrls: ['./potential-list.component.css']
 })
-
-
-export class ManageUserComponent implements AfterViewInit {
-
-  title = "Manage User";
+export class PotentialListComponent {
+  title = "Potential User";
   isEdit:boolean = false;
   isAuth:boolean = false;
   isEmployee: boolean = false
@@ -65,6 +60,12 @@ constructor(private account :AccountService, private titleService:Title, private
     console.log("check: ",this.isEmployee);
       this.account.getAllInfo().subscribe((data:any)=>{
         this.userData = data.users
+        this.userData.sort(function(a:any,b:any) {
+          return b.point - a.point;
+        });
+
+        this.userData  = this.userData.slice(0, 10);
+
         this.dataSource = new MatTableDataSource(this.userData)
         this.dataSource.paginator = this.paginator;
 
@@ -165,6 +166,7 @@ constructor(private account :AccountService, private titleService:Title, private
     //location.reload();
   }
 
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -189,9 +191,4 @@ constructor(private account :AccountService, private titleService:Title, private
     else this.type = "password";
     this.showPss = !this.showPss;
   }
-  
-  potentialCus() {
-    this.router.navigate(['/potential-list']);
-  }
-
 }

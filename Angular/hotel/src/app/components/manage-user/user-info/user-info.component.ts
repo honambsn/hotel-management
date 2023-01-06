@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent {
-
+  ngOnInit():void {
+    console.log(localStorage.getItem('user_detail'))
+  }
 }
