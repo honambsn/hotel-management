@@ -1,0 +1,11 @@
+mat-label{
+  color: black;
+  font-weight: bold;
+  font-size: larger;
+}
+h1{
+  margin-top: 10%;
+}
+mat-form-field{
+  width: 100%;
+}

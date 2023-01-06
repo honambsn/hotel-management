@@ -1,42 +1,42 @@
-<div *ngIf="isAuth">
+<div *ngIf="isAuth && roomDetail">
 
   <h1> ROOM INFO</h1>
 
 
-  <mat-form-field >
+  <mat-form-field  >
     <mat-label>Room ID</mat-label>
-    <input matInput disabled={{!edit}} placeholder="{{this.id}}" [(ngModel)]="id">
+    <input matInput disabled={{!edit}} placeholder="{{roomDetail._id}}" [(ngModel)]="roomDetail._id">
   </mat-form-field>
-  
+
   <hr>
 
   <mat-form-field >
 
     <mat-label> Room No</mat-label>
-    <<input matInput disabled={{!edit}}> placeholder="{{this.room_no}}" [(ngModel)]="room_no">
+    <input matInput disabled={{!edit}} placeholder="{{roomDetail.room_no}}" [(ngModel)]="roomDetail.room_no">
   </mat-form-field>
 
   <hr>
   <mat-form-field >
     <mat-label> Room Type</mat-label>
-    <input matInput disabled={{!edit}} placeholder="{{this.room_type}}" [(ngModel)]="room_type">
+    <input matInput disabled={{!edit}} placeholder="{{roomDetail.room_type}}" [(ngModel)]="roomDetail.room_type">
   </mat-form-field>
 
   <hr>
   <mat-form-field >
     <mat-label> Price</mat-label>
-    <input matInput disabled={{!edit}} placeholder="{{this.price}}" [(ngModel)]="price">
+    <input matInput disabled={{!edit}} placeholder="{{roomDetail.price}}" [(ngModel)]="roomDetail.price">
   </mat-form-field>
 
     <hr>
   <mat-form-field >
     <mat-label> Room status</mat-label>
-    <input matInput disabled={{!edit}} placeholder="{{this.room_status}}" [(ngModel)]="room_status">
+    <input matInput disabled={{!edit}} placeholder="{{roomDetail.room_status}}" [(ngModel)]="roomDetail.room_status">
   </mat-form-field>
 
     <hr>
   <mat-form-field >
     <mat-label> Clean status</mat-label>
-    <input matInput disabled={{!edit}} placeholder="{{this.clean_status}}" [(ngModel)]="clean_status">
+    <input matInput disabled={{!edit}} placeholder="{{roomDetail.clean_status}}" [(ngModel)]="roomDetail.clean_status">
   </mat-form-field>
 </div>

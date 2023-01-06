@@ -1,1 +1,57 @@
-<p>user-info works!</p>
+<div *ngIf="isAuth && userDetail">
+
+  <h1> ROOM INFO</h1>
+
+
+  <mat-form-field  >
+    <mat-label>User ID</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail._id}}" [(ngModel)]="userDetail._id">
+  </mat-form-field>
+
+  <hr>
+
+  <mat-form-field >
+
+    <mat-label>Name</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.name}}" [(ngModel)]="userDetail.name">
+  </mat-form-field>
+
+  <hr>
+  <mat-form-field >
+    <mat-label>Email</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.email}}" [(ngModel)]="userDetail.email">
+  </mat-form-field>
+
+  <hr>
+  <mat-form-field >
+    <mat-label>Password</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.password" [(ngModel)]="userDetail.password">
+  </mat-form-field>
+
+    <hr>
+  <mat-form-field >
+    <mat-label>Date of Birth</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.dob}}" [(ngModel)]="userDetail.dob">
+  </mat-form-field>
+
+    <hr>
+  <mat-form-field >
+    <mat-label>Address</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.address}}" [(ngModel)]="userDetail.address">
+  </mat-form-field>
+  <hr>
+  <mat-form-field >
+    <mat-label>User type</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.type}}" [(ngModel)]="userDetail.type">
+  </mat-form-field>
+  <hr>
+  <mat-form-field >
+    <mat-label>Reward Point</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.point}}" [(ngModel)]="userDetail.point">
+  </mat-form-field>
+  <hr>
+  <mat-form-field >
+    <mat-label>User Payment</mat-label>
+    <input matInput disabled={{!edit}} placeholder="{{userDetail.payment}" [(ngModel)]="userDetail.payment">
+  </mat-form-field>
+</div>
