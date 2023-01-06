@@ -58,9 +58,38 @@ export class AccountService {
   addService(user_uid:any,service_uid:any):Observable<any> {
     httpOptions.headers =
       httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
-    var path = 'user/detail/'+user_uid +"/" +"addservice"
+    var path = 'user/detail/'+user_uid +"/" +"bookedservice"
     console.log(api + path + service_uid)
     return this.http.post(api + path,service_uid, httpOptions);
+  }
+
+  // router.post('/user/detail/:id/bookedroom',userController.add_bookedroom_to_user)
+  bookRoom(user_uid:any,data:any):Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    var path = api + 'user/detail/' + user_uid + '/' + 'bookedroom';
+    console.log(path)
+    console.log(data, httpOptions);
+    return this.http.post(path, data, httpOptions);
+  }
+  cancelRoom(user_uid:any,data:any):Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    var path = api + 'user/detail/' + user_uid + '/' + 'cancelroom';
+    console.log(path)
+    console.log(data, httpOptions);
+    return this.http.post(path, data, httpOptions);
+  }
+  billAndPoint(uid:any):Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    return this.http.post(api+'user/resetaddpoint',uid,httpOptions);   
+  }
+
+  resetRoom(room_id:any):Observable<any>{
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    return this.http.post(api+'user/resetroom',room_id,httpOptions);   
   }
 }
 
