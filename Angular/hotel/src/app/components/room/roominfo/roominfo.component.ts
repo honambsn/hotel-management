@@ -71,9 +71,44 @@ export class RoominfoComponent {
   //     this.clean_status =  data.rooms.clean_status
   //   })
   // }
+
+
   testService() {
-    var service_uid = "63b8060a8b02574e6ea10311"
-    this.account.addService(localStorage.getItem('uid'), service_uid)
+    var data = {
+    "_id" : "63b8060a8b02574e6ea10311"
+    }
+    this.account.addService(localStorage.getItem('uid'), data).subscribe(data=>{
+      console.log(data)
+    })
     console.log("booked")
   }
+
+  bookRoom() {
+    
+    var uid = localStorage.getItem('uid')
+    var data ={ "_id" : this.roomDetail._id,
+      "checkInAt" : "1/1/2000",
+      "checkOutAt" : "2/2/2002",
+    }
+    console.log(typeof data)
+    this.account.bookRoom(uid, data ).subscribe(data=>{
+      console.log(data);
+    });
+    console.log("booked")
+    location.reload();
+  }
+
+  cancelRoom() {
+    var uid = localStorage.getItem('uid')
+     var data ={ "_id" : this.roomDetail._id
+    }
+    console.log(typeof data)
+    this.account.cancelRoom(uid, data ).subscribe(data=>{
+      console.log(data);
+    });
+    console.log("cancelled")
+    location.reload();
+  }
+
+  
 }
