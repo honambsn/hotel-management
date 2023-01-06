@@ -25,7 +25,7 @@ export class UserInfoComponent {
 
   userDetail: any
 
-  constructor(private titleService:Title, private account : AccountService, private router: Router, private route: ActivatedRoute) {
+  constructor(private titleService:Title, private account : AccountService, private router: Router, private route: ActivatedRoute, private room :RoomService) {
 
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
@@ -54,5 +54,26 @@ export class UserInfoComponent {
       this.userDetail = data.users
       console.log(this.userDetail)
     })
+  }
+  payAndPoint() {
+    var data = {
+      "_id" :this.userDetail._id
+    }
+    this.account.billAndPoint(data).subscribe((data:any) =>{
+      console.log(data)
+    })
+    var data_room = {
+      "_id" :this.userDetail._id
+    }
+    this.account.resetRoom(data_room).subscribe((data:any)=>{
+      console.log(data);
+    })
+    var room_reset_status = {
+      "room_status" : "Empty"
+    }
+    this.room.updateData(this.userDetail.roombooked[0], room_reset_status).subscribe((data:any)=>{
+      console.log(data)      
+    })
+    location.reload()
   }
 }
