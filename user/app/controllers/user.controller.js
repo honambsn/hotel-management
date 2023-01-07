@@ -26,12 +26,28 @@ class userController{
     }
 
     add_user(req, res,next){
-        const user = new User(req.body)
-        user
-            .save()
-            .then(()=>res.json(req.body))
-            .catch((error)=>{})
+        const {email} = req.body.email
+        userService.check_existed_account({email},(error,result)=>{
+            if(error) {
+                return res.send({result:false ,status:false});
+            }
+            if(result==false){
+                return res.send({result:'error',status:false})
+            }
+            else{
+            const user = new User(req.body)
+            user
+                .save()
+                return res.status(200).json({
+                    status:true,
+                   
+                    data: result,
+                    user
+                })
+            }
+        })
     }
+    
 
     remove_user(req, res,next){
         User.deleteOne({_id: req.params.id })
