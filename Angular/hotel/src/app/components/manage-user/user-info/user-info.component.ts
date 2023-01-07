@@ -72,8 +72,15 @@ export class UserInfoComponent {
       "room_status" : "Empty"
     }
     this.room.updateData(this.userDetail.roombooked[0], room_reset_status).subscribe((data:any)=>{
-      console.log(data)      
+      console.log(data)
     })
     location.reload()
+  }
+
+  goRoom()
+  {
+
+    let api = '/room-detail/'+this.userDetail.roombooked
+    this.router.navigate([api]);
   }
 }
