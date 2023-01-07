@@ -33,6 +33,7 @@ import { PotentialListComponent } from './components/manage-user/potential-list/
 import { UserInfoComponent } from './components/manage-user/user-info/user-info.component';
 import { RoomServiceComponent } from './components/room-service/room-service.component';
 import { UserServiceService } from './services/user-service/user-service.service';
+import { ListRoomComponent } from './components/list-room/list-room.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { UserServiceService } from './services/user-service/user-service.service
     PotentialListComponent,
     UserInfoComponent,
     RoomServiceComponent,
+    ListRoomComponent,
   ],
   imports: [
     BrowserModule,
