@@ -50,6 +50,7 @@ async function check_room_status({_id},callback){
     }
 }
 
+
 async function check_service_status({_id},callback){
     const service = await Service.findById({_id})
     if(service != null){

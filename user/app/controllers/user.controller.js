@@ -74,13 +74,13 @@ class userController{
 
 
     async add_bookedroom_to_user(req,res,next){
-
+        const user = await User.findById(req.params.id)
         const {_id} = req.body
         const fromDate = moment(req.body.checkInAt,'DD/MM/YYYY')
         const toDate = moment(req.body.checkOutAt,'DD/MM/YYYY')
         const DayAmount = moment.duration(toDate.diff(fromDate)).asDays()
         console.log(DayAmount)
-        userService.check_room_status({_id},async(error,result)=>{
+        userService.check_room_status({_id},user,async(error,result)=>{
             if(error) {
                 return next(error)
             }
@@ -149,6 +149,7 @@ class userController{
             await room.save()
         })
         user.roombooked = []
+        user.servicebooked=[]
         await user.save()
         res.send('Reset Success')
     }
