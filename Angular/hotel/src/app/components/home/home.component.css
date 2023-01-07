@@ -9,7 +9,7 @@
   .menubar
   {
     height: 200px;
-    margin-top: 30px;
+    margin-top: 0px;
     width: 100%;
     margin-left: -100px;
     margin-right: -100px;
@@ -49,6 +49,7 @@
   /* Header/logo Title */
   .header {
     padding: 80px;
+    margin-top: -100px;
     height: 600px;
     margin-left: -397px;
   margin-right: -396px;
@@ -58,10 +59,11 @@
     background-repeat: no-repeat;
     background-size:cover;
     color: white;
-    filter: brightness(80%);
+    filter: brightness(90%);
     /* opacity: 0.95; */
-
   }
+
+
   .header-content
   {
     margin-top: 100px;
@@ -74,7 +76,10 @@
   }
   
   /* Increase the font size of the heading */
-  
+  .stickybar-info
+  {
+    margin-top: 10px;
+  }
   .header-button{
     border: none;
     margin-left: 400px;
@@ -83,6 +88,29 @@
     padding: 15px 15px 15px 15px;
     font-size: 18px;
     background-color: black;
+  }
+  .sticky-button
+  {
+    border: none;
+   margin-left: 50px;
+    border-radius: 20px;
+    margin-top: 15px;
+   
+    padding: 20px 30px 20px 30px;
+    font-size: 18px;
+    background-color: black;
+  }
+  .findHotel-info
+  {
+    color:white;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .stickybar-info
+  {
+    margin-left: 50px;
+    font-size: 20px;
+    color: white;
   }
   .featured{
 
@@ -148,7 +176,11 @@
   .fpName{
     color: #333;
     font-weight: bold;
+
   }
+  .fpName:hover {
+    text-decoration: underline;
+}
   
   .fpCity{
     font-weight: 300;
@@ -221,8 +253,44 @@
   
 .DateRange
 {
-  display: inline-block;
+  margin-top: 10px;
   height: 100px;
-  width: 250px;
-  margin-left: 80px;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+
 }
+
+.sticky-bar
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: white;
+  width: 1200px;
+  height: 100px;
+  margin-left: 0px;
+  margin-right: auto;
+  border-radius: 40px;
+  top:0px;
+  z-index: 11;
+  background-color: #ff8d6b;
+}
+.main-container
+{
+  height: 2000px;
+}
+.people
+{
+  width: 200px;
+  height: 100px;
+  font-size: 18px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.counter
+{
+  display: inline-block;
+}
+

@@ -21,7 +21,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
-
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
@@ -30,6 +29,10 @@ import { SearchRoomComponent } from './components/room/search/search-room/search
 import { HighlightDirective } from './components/room/search/highlight.pipe';
 import { RoominfoComponent } from './components/room/roominfo/roominfo.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { PotentialListComponent } from './components/manage-user/potential-list/potential-list.component';
+import { UserInfoComponent } from './components/manage-user/user-info/user-info.component';
+import { RoomServiceComponent } from './components/room-service/room-service.component';
+import { UserServiceService } from './services/user-service/user-service.service';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     HighlightDirective,
     RoominfoComponent,
     PagenotfoundComponent,
+    PotentialListComponent,
+    UserInfoComponent,
+    RoomServiceComponent,
   ],
   imports: [
     BrowserModule,

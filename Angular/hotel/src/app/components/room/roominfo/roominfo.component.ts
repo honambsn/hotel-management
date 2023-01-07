@@ -30,8 +30,8 @@ export class RoominfoComponent {
 
   roomDetail: any
   roomData : any = [];
-  
-  constructor(private titleService:Title, private room : RoomService, private router: Router, private route: ActivatedRoute) {
+
+  constructor(private titleService:Title, private room : RoomService, private router: Router, private route: ActivatedRoute, private account:AccountService) {
 
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
@@ -48,34 +48,76 @@ export class RoominfoComponent {
     else {
       this.isEmployee = false;
     }
+
   }
 
 
   ngOnInit():void {
-    console.log(localStorage.getItem('room_detail'));
-    
-    this.room.getAllRoom().subscribe((data:any)=>{
-      
-      this.roomData = data.rooms;
-      this.roomData = data.rooms;
-    })
+    this.titleService.setTitle(this.title)
     this.uid = localStorage.getItem('room_detail')
     this.room.getRoomDetail(this.uid).subscribe((data:any)=>{
-      console.log("data ne`: ",data);
-      this.roomDetail = data
-      console.log(data.rooms._id)
-    })
-  }
-  getDetail()
-  {
-    this.room.getRoomDetail(this.uid).subscribe((data:any)=>{
-      this.id = data.rooms._id
-      this.room_no = data.rooms.room_no
-      this.room_type = data.rooms.room_type
-      this.price = data.rooms.price
-      this.room_status = data.rooms.room_status
-      this.clean_status =  data.rooms.clean_status
+      this.roomDetail = data.rooms
+      console.log(this.roomDetail)
     })
   }
 
+  // getDetail()
+  // {
+  //   this.room.getRoomDetail(this.uid).subscribe((data:any)=>{
+  //     this.id = data.rooms._id
+  //     this.room_no = data.rooms.room_no
+  //     this.room_type = data.rooms.room_type
+  //     this.price = data.rooms.price
+  //     this.room_status = data.rooms.room_status
+  //     this.clean_status =  data.rooms.clean_status
+  //   })
+  // }
+
+
+  bookService() {
+    var data = {
+    "_id" : "63b8060a8b02574e6ea10311"
+    }
+    this.account.addService(localStorage.getItem('uid'), data).subscribe(data=>{
+      console.log(data)
+    })
+    console.log("booked")
+  }
+  cancelService() {
+    var data = {
+      "_id":"63b8057b8b02574e6ea1030c"
+    }
+    var uid = localStorage.getItem('uid')
+    this.account.cancelRoom(uid,data).subscribe(data=>{
+      console.log(data)
+    })
+  }
+  bookRoom() {
+    
+    var uid = localStorage.getItem('uid')
+    var data ={ "_id" : this.roomDetail._id,
+      "checkInAt" : "1/1/2000",
+      "checkOutAt" : "2/2/2002",
+    }
+    console.log(typeof data)
+    this.account.bookRoom(uid, data ).subscribe(data=>{
+      console.log(data);
+    });
+    console.log("booked")
+    location.reload();
+  }
+
+  cancelRoom() {
+    var uid = localStorage.getItem('uid')
+     var data ={ "_id" : this.roomDetail._id
+    }
+    console.log(typeof data)
+    this.account.cancelRoom(uid, data ).subscribe(data=>{
+      console.log(data);
+    });
+    console.log("cancelled")
+    location.reload();
+  }
+
+  
 }

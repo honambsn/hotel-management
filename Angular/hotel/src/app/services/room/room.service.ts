@@ -39,4 +39,6 @@ export class RoomService {
     return this.http.post(api + 'room/add/',data);
   }
 
+  
+
 }

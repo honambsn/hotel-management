@@ -1,3 +1,5 @@
+import { PotentialListComponent } from './components/manage-user/potential-list/potential-list.component';
+import { UserInfoComponent } from './components/manage-user/user-info/user-info.component';
 
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { RoominfoComponent } from './components/room/roominfo/roominfo.component';
@@ -15,6 +17,8 @@ import { Title } from '@angular/platform-browser';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { RoomComponent } from './components/room/room.component';
 import { SearchRoomComponent } from './components/room/search/search-room/search-room.component';
+import { UserServiceService } from './services/user-service/user-service.service';
+import { RoomServiceComponent } from './components/room-service/room-service.component';
 
 const resolvedChildATitle: ResolveFn<string> = () => Promise.resolve('child a');
 const routes: Routes = [
@@ -30,7 +34,9 @@ const routes: Routes = [
 {path:'manage-room', component:RoomComponent},
 {path:'search-room', component:SearchRoomComponent},
 {path:'room-detail/:id', component:RoominfoComponent},
-{path: '**', component:PagenotfoundComponent},
+{path:'potential-list', component:PotentialListComponent},
+{path:'user-detail/:id', component: UserInfoComponent},
+{path:'service',component:RoomServiceComponent},
 ];
 
 
@@ -44,4 +50,6 @@ export class AppRoutingModule {}
 export const routingComponent  = [PagenotfoundComponent, 
                                   TestComponent,
                                   SearchRoomComponent,
+                                  RoomComponent,
+                                  ManageUserComponent,
                                   RoominfoComponent]
