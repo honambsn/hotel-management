@@ -25,7 +25,8 @@ export class RoominfoComponent {
   price:any;
   room_status:any;
   clean_status:any;
-
+  checkIn:any;
+  checkOut:any;
   edit:boolean = false;
 
   roomDetail: any
@@ -58,6 +59,8 @@ export class RoominfoComponent {
     this.room.getRoomDetail(this.uid).subscribe((data:any)=>{
       this.roomDetail = data.rooms
       console.log(this.roomDetail)
+      this.checkIn = this.roomDetail.checkInAt
+      this.checkOut = this.roomDetail.checkOutAt
     })
   }
   // getDetail()
@@ -84,7 +87,7 @@ export class RoominfoComponent {
   }
 
   bookRoom() {
-    
+
     var uid = localStorage.getItem('uid')
     var data ={ "_id" : this.roomDetail._id,
       "checkInAt" : "1/1/2000",
@@ -109,6 +112,36 @@ export class RoominfoComponent {
     console.log("cancelled")
     location.reload();
   }
+checkStatus():boolean
+  {
+    if (this.roomDetail.room_status == "Booked")
+    return true
+    else return false
+  }
+  editCheckInOut()
+  {
+    this.edit=true;
+  }
+  updateCheckInOut()
+  {
 
-  
+    const dateFormat = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (this.edit){
+      if (this.checkIn && this.checkOut && this.checkIn.match(dateFormat) && this.checkOut.match(dateFormat) ) {
+        var uid = localStorage.getItem('room_detail')
+        let checkin = {"checkInAt":this.checkIn, "checkOutAt":this.checkOut}
+        this.room.updateData(uid,checkin).subscribe(resust=>{
+          console.log(resust)
+
+        })
+      } else {
+        this.ngOnInit()
+        alert('Input does not match the dd/mm/yyyy format');
+
+      }
+    }
+
+    this.edit = false;
+  }
 }
+
