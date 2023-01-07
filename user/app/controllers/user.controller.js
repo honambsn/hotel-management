@@ -116,7 +116,7 @@ class userController {
             if (result == true) {
                 const service = await Service.findByIdAndUpdate(req.body, { service_status: 'Booked' })
                 const user = await User.findById(req.params.id)
-                user.servicebooked.push(service.)
+                user.servicebooked.push(service._id)
                 user.save()
                 return res.status(200).json({ user })
             } else {
