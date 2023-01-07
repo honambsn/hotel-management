@@ -57,6 +57,7 @@ import { ListRoomComponent } from './components/list-room/list-room.component';
     PotentialListComponent,
     UserInfoComponent,
     RoomServiceComponent,
+
     ListRoomComponent,
     ServiceDetailComponent,
     
