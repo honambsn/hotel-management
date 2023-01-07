@@ -20,18 +20,22 @@ export class UserServiceService {
   getAllService() : Observable<any> {
     console.log(api + 'service/list')
 
+
     httpOptions.headers =
       httpOptions.headers.set('Authorization',localStorage.getItem('token') as string);
     return this.http.get(api + 'service/list', httpOptions);
   }
 
   getServiceInfo(serviceId:any) : Observable<any> {
+
     httpOptions.headers =
+
     httpOptions.headers.set('Authorization',localStorage.getItem('token') as string);
   return this.http.get(api + 'service/detail/' + serviceId, httpOptions);
 
   }
   addService(data:any):Observable<any>{
+
     httpOptions.headers =
     httpOptions.headers.set('Authorization',localStorage.getItem('token') as string);
     return this.http.post(api + 'service/add',data, httpOptions);
@@ -49,7 +53,5 @@ export class UserServiceService {
   }
   updateAllService(data:any):Observable<any>{
     httpOptions.headers =
-    httpOptions.headers.set('Authorization',localStorage.getItem('token') as string);
-  return this.http.patch(api + 'service/detail/' + data, httpOptions);
-  }
+
 }

@@ -59,8 +59,10 @@ export class RoominfoComponent {
     this.room.getRoomDetail(this.uid).subscribe((data:any)=>{
       this.roomDetail = data.rooms
       console.log(this.roomDetail)
+
       this.checkIn = this.roomDetail.checkInAt
       this.checkOut = this.roomDetail.checkOutAt
+
     })
   }
 
@@ -97,6 +99,7 @@ export class RoominfoComponent {
   }
   bookRoom() {
 
+
     var uid = localStorage.getItem('uid')
     var data ={ "_id" : this.roomDetail._id,
       "checkInAt" : "1/1/2000",
@@ -121,6 +124,7 @@ export class RoominfoComponent {
     console.log("cancelled")
     location.reload();
   }
+
 checkStatus():boolean
   {
     if (this.roomDetail.room_status == "Booked")

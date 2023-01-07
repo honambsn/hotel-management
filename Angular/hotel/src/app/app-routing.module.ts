@@ -23,6 +23,7 @@ import { RoomServiceComponent } from './components/room-service/room-service.com
 import { ListRoomComponent } from './components/list-room/list-room.component';
 import { ServiceDetailComponent } from './components/room-service/service-detail/service-detail.component';
 
+
 const resolvedChildATitle: ResolveFn<string> = () => Promise.resolve('child a');
 const routes: Routes = [
 {path:'',component:HomeComponent},
@@ -40,8 +41,10 @@ const routes: Routes = [
 {path:'potential-list', component:PotentialListComponent},
 {path:'user-detail/:id', component: UserInfoComponent},
 {path:'service',component:RoomServiceComponent},
+
 {path:'service-detail/:id',component:ServiceDetailComponent},
 {path:'list-room',component:ListRoomComponent},
+
 ];
 
 
@@ -59,3 +62,4 @@ export const routingComponent  = [PagenotfoundComponent,
                                   RoomComponent,
                                   ManageUserComponent,
                                   RoominfoComponent]
+

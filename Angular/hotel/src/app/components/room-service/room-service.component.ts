@@ -24,9 +24,11 @@ export class RoomServiceComponent {
 
   serviceData : any = []
   dataSource = new MatTableDataSource <any>(this.serviceData);
+
   displayedColumns: string[] = ['select','index','id', 'type_of_service', 'price','service_description', 'service_status'];
 
   constructor(private titleService:Title,  private router: Router, private user_service:UserServiceService) {
+
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
     if (token) {
@@ -53,9 +55,11 @@ export class RoomServiceComponent {
     console.log(localStorage.getItem('account_type'));
     this.user_service.getAllService().subscribe((data:any)=>{
 
+
       this.serviceData = data.services;
       console.log("data:",this.serviceData)
       this.dataSource = new MatTableDataSource(this.serviceData);
+
       this.dataSource.paginator = this.paginator;
       console.log(this.dataSource.data.length);
     })
@@ -84,6 +88,7 @@ export class RoomServiceComponent {
           );
   }
 
+
   editService()
   {
     let isSelect = false;
@@ -101,7 +106,9 @@ export class RoomServiceComponent {
   {
     return this.isEdit && this.selection.isSelected(row)
   }
+
   updateService()
+
   {
     console.log("updateRoom");
     if (this.isEdit)
@@ -109,9 +116,11 @@ export class RoomServiceComponent {
       console.log("isedit")
       this.isEdit= !this.isEdit;
 
+
       for (let i = 0; i< this.dataSource.data.length;i++)
       {
         this.user_service.updateSpecificService(this.dataSource.data[i]._id,this.dataSource.data[i]).subscribe(data=>{
+
           console.log(data)
         })
       }
@@ -120,6 +129,7 @@ export class RoomServiceComponent {
       //location.reload();
     }
   }
+
 
   delService()
   {
@@ -137,7 +147,9 @@ export class RoomServiceComponent {
       for (let i = 0; i < delList.length; i++)
       {
         console.log(delList[i]._id)
+
         this.user_service.deleteService(delList[i]._id).subscribe(data=>{
+
           console.log(data)
         });
       }
@@ -151,6 +163,7 @@ export class RoomServiceComponent {
     //location.reload();
   }
 
+
   addNewService()
   {
     let data = {type_of_service:'Random Service'}
@@ -163,9 +176,11 @@ export class RoomServiceComponent {
     this.dataSource.paginator = this.paginator;
 
   }
+
   // searchRoom() {
   //   this.router.navigate(['/search-room'])
   // }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -174,10 +189,12 @@ export class RoomServiceComponent {
   }
   onSelect(element:any) {
 
+
     localStorage.setItem('service-id',element._id)
 
     let api = '/service-detail/'+element._id
     this.router.navigate([api]);
   }
+
 
 }
