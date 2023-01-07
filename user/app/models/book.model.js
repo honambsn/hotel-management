@@ -5,6 +5,7 @@ mongoose.plugin(slug);
 const Schema = mongoose.Schema
 
 const Book = new Schema({
+    customer_name:{type: String},
     room_id:{type: String},
     room_no: {type: String,},
     room_type: {type: String,},

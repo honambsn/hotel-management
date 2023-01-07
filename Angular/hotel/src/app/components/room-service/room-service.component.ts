@@ -24,9 +24,9 @@ export class RoomServiceComponent {
 
   serviceData : any = []
   dataSource = new MatTableDataSource <any>(this.serviceData);
-  displayedColumns: string[] = ['select','index','id', 'type_of_service', 'service_description', 'service_status'];
-  
-  constructor(private titleService:Title, private room : RoomService, private router: Router, private user_service:UserServiceService) {
+  displayedColumns: string[] = ['select','index','id', 'type_of_service', 'price','service_description', 'service_status'];
+
+  constructor(private titleService:Title,  private router: Router, private user_service:UserServiceService) {
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
     if (token) {
@@ -52,10 +52,10 @@ export class RoomServiceComponent {
     this.titleService.setTitle(this.title);
     console.log(localStorage.getItem('account_type'));
     this.user_service.getAllService().subscribe((data:any)=>{
-      console.log("data:",data)
-      console.log(typeof data);
-      this.serviceData = data;
-      this.dataSource = new MatTableDataSource(data);
+
+      this.serviceData = data.services;
+      console.log("data:",this.serviceData)
+      this.dataSource = new MatTableDataSource(this.serviceData);
       this.dataSource.paginator = this.paginator;
       console.log(this.dataSource.data.length);
     })
@@ -84,7 +84,7 @@ export class RoomServiceComponent {
           );
   }
 
-  editRoom()
+  editService()
   {
     let isSelect = false;
     this.dataSource.data.forEach(row => {
@@ -101,17 +101,17 @@ export class RoomServiceComponent {
   {
     return this.isEdit && this.selection.isSelected(row)
   }
-  updateRoom()
+  updateService()
   {
     console.log("updateRoom");
     if (this.isEdit)
     {
       console.log("isedit")
       this.isEdit= !this.isEdit;
-      
+
       for (let i = 0; i< this.dataSource.data.length;i++)
       {
-        this.room.updateData(this.dataSource.data[i]._id,this.dataSource.data[i]).subscribe(data=>{
+        this.user_service.updateSpecificService(this.dataSource.data[i]._id,this.dataSource.data[i]).subscribe(data=>{
           console.log(data)
         })
       }
@@ -121,7 +121,7 @@ export class RoomServiceComponent {
     }
   }
 
-  delRoom()
+  delService()
   {
     let delList:any = []
     this.dataSource.data.forEach(row => {
@@ -137,7 +137,7 @@ export class RoomServiceComponent {
       for (let i = 0; i < delList.length; i++)
       {
         console.log(delList[i]._id)
-        this.room.delRoom(delList[i]._id).subscribe(data=>{
+        this.user_service.deleteService(delList[i]._id).subscribe(data=>{
           console.log(data)
         });
       }
@@ -151,21 +151,21 @@ export class RoomServiceComponent {
     //location.reload();
   }
 
-  addRoom()
+  addNewService()
   {
-    let data = {room_no: '1000'}
-    this.room.addRoom(data).subscribe(data=>{
+    let data = {type_of_service:'Random Service'}
+    this.user_service.addService(data).subscribe(data=>{
       console.log(data)
     })
-    location.reload();
+   // location.reload();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
 
   }
-  searchRoom() {
-    this.router.navigate(['/search-room'])
-  }
+  // searchRoom() {
+  //   this.router.navigate(['/search-room'])
+  // }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -173,9 +173,11 @@ export class RoomServiceComponent {
 
   }
   onSelect(element:any) {
-    localStorage.setItem('room_detail',element._id)
-    this.router.navigate(['/room-detail', element._id]);
-  }
 
+    localStorage.setItem('service-id',element._id)
+
+    let api = '/service-detail/'+element._id
+    this.router.navigate([api]);
+  }
 
 }

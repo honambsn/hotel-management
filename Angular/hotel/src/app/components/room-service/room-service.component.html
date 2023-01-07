@@ -1,1 +1,85 @@
-<p>room-service works!</p>
+
+<div *ngIf="isAuth">
+  <div *ngIf="isEmployee">
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. name,type,..." #input>
+    </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+    </ng-container> -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <ng-container   matColumnDef="select" >
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row; let i = index">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row) ">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id" class="id">
+      <th mat-header-cell *matHeaderCellDef>ID.</th>
+      <td mat-cell *matCellDef="let element" (click)="onSelect(element )" style="color:blue;text-decoration-line: underline;"> {{element._id}} </td>
+    </ng-container>
+<!--
+    <!-- Name Column -->
+    <ng-container matColumnDef="type_of_service">
+      <th mat-header-cell *matHeaderCellDef>Type Service</th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.type_of_service" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.price" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="service_description">
+      <th mat-header-cell *matHeaderCellDef>Description </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)"  [(ngModel)]="element.service_description" type="text" /> </td>
+    </ng-container>
+    <ng-container matColumnDef="service_status">
+      <th mat-header-cell *matHeaderCellDef>Status </th>
+      <td mat-cell *matCellDef="let element, let row"><input [disabled] ="!checkEdit(row)" [(ngModel)]="element.service_status" type="text" /> </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    (click)="selection.toggle(row) "></tr> -->
+  </table>
+
+  <mat-paginator  [pageSizeOptions]="[5,10,25]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+  <button class="edit_data" mat-raised-button color="accent" disabled={{isEdit}} (click) = "editService()">Edit</button>
+  <button class="delete_data" mat-raised-button color="accent" (click) = "delService()" >Delete</button>
+  <button class="add_data" mat-raised-button color="accent" (click) = "addNewService()" >Add</button>
+  <button class="save_data" mat-raised-button color="accent" (click) = "updateService()">Save</button>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>

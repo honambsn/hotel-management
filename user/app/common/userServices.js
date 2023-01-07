@@ -50,6 +50,19 @@ async function check_room_status({_id},callback){
     }
 }
 
+async function check_existed_account({email},callback){
+    const user = await User.find({email})
+    console.log(user._id)
+    if(user.id === undefined){
+        result = true
+        return callback(null,result)
+    }
+    else{
+        result = false
+        return callback(null,result)
+    }
+}
+
 async function check_service_status({_id},callback){
     const service = await Service.findById({_id})
     if(service != null){
@@ -71,5 +84,6 @@ async function check_service_status({_id},callback){
 module.exports = {
     check_login,
     check_room_status,
-    check_service_status
+    check_service_status,
+    check_existed_account
 }
