@@ -62,7 +62,7 @@ export class RoomServiceComponent {
 
   }
 
-  selection = new SelectionModel<any>(true, []);
+  selection = new SelectionModel<any>(true, []);  
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;

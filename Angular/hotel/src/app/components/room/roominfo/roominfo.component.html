@@ -1,6 +1,7 @@
 <div *ngIf="isAuth && roomDetail">
 
-  <h1> ROOM INFO</h1>
+    <h1> ROOM INFO</h1>
+
 
 
   <mat-form-field  >
@@ -8,9 +9,11 @@
     <input matInput disabled placeholder="{{roomDetail._id}}" [(ngModel)]="roomDetail._id">
   </mat-form-field>
 
-  <hr>
 
-  <mat-form-field >
+    <hr>
+
+    <mat-form-field>
+
 
     <mat-label> Room No</mat-label>
     <input matInput disabled placeholder="{{roomDetail.room_no}}" [(ngModel)]="roomDetail.room_no">
@@ -40,6 +43,7 @@
     <input  matInput disabled placeholder="{{roomDetail.clean_status}}" [(ngModel)]="roomDetail.clean_status">
   </mat-form-field>
 
+
   <hr>
   <mat-form-field *ngIf="checkStatus()">
     <mat-label> Check In</mat-label>
@@ -63,6 +67,7 @@
   <button class="add_data" *ngIf="checkStatus()" mat-raised-button color="accent" (click) = "editCheckInOut()" > Edit Check In and Check Out</button>
   <button class="add_data" *ngIf="checkStatus()" mat-raised-button color="accent" (click) = "updateCheckInOut()" >Update Check In and Check Out</button>
   <!-- <button class="save_data" mat-raised-button color="accent" (click) = "updateUser()">Save</button>
+
   <button class="show_pass" mat-raised-button color="accent" (click) = "showPass()">Show/hide password</button>
   <button class="show_potentialUser" mat-raised-button color="accent" (click) = "potentialCus()">Show potential user</button> -->
 </div>

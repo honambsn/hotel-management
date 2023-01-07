@@ -1,10 +1,10 @@
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BookComponent } from './../book/book.component';
 import { RoomService } from './../../services/room/room.service';
 import { Title } from '@angular/platform-browser';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { AccountService} from 'src/app/services/account/account.service';
 import { AfterViewInit } from '@angular/core';
@@ -13,15 +13,15 @@ import { ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 
 
+
 @Component({
-  selector: 'app-room',
-  templateUrl: './room.component.html',
-  styleUrls: ['./room.component.css']
+  selector: 'app-list-room',
+  templateUrl: './list-room.component.html',
+  styleUrls: ['./list-room.component.css']
 })
+export class ListRoomComponent {
 
-
-export class RoomComponent implements AfterViewInit {
-
+  
   title = "Manage Room";
   isEdit:boolean = false;
   isAuth:boolean = false;
@@ -30,7 +30,7 @@ export class RoomComponent implements AfterViewInit {
 
   roomData : any = []
   dataSource = new MatTableDataSource <any>(this.roomData);
-  displayedColumns: string[] = ['select','index','id', 'room_no', 'room_type', 'price', 'room_status', 'clean_status', 'createAt', 'updateAt'];
+  displayedColumns: string[] = ['index','id', 'room_no', 'room_type', 'price', 'room_status', 'clean_status'];
   
   constructor(private titleService:Title, private room : RoomService, private router: Router) {
     const token = localStorage.getItem('token');
