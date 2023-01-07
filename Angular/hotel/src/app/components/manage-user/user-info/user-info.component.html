@@ -60,7 +60,7 @@
 
   <mat-form-field >
     <mat-label>Using service's id</mat-label>
-    <input matInput   placeholder="{{userDetail.servicebooked}}"  [(ngModel)]="userDetail.servicebooked" readonly>
+    <input matInput  (click)="goService()" placeholder="{{userDetail.servicebooked}}"  [(ngModel)]="userDetail.servicebooked" readonly>
 
   </mat-form-field>
   <hr>

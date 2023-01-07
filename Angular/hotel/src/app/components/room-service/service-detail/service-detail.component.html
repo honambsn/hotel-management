@@ -1,0 +1,37 @@
+<div *ngIf="isAuth && serviceDetail">
+
+  <h1 class="user-info"> <strong>SERVICE DETAIL</strong></h1>
+
+
+<mat-form-field  >
+  <mat-label>Service ID</mat-label>
+  <input matInput  placeholder="{{serviceDetail._id}}" [(ngModel)]="serviceDetail._id" readonly>
+</mat-form-field>
+
+
+  <hr>
+
+  <mat-form-field>
+
+      <mat-label>Type</mat-label>
+      <input matInput  placeholder="{{serviceDetail.name}}" [(ngModel)]="serviceDetail.type_of_service" readonly>
+  </mat-form-field>
+  <hr>
+<mat-form-field>
+  <mat-label>Price</mat-label>
+  <input matInput  placeholder="{{serviceDetail.name}}" [(ngModel)]="serviceDetail.price" readonly>
+</mat-form-field>
+
+<hr>
+<mat-form-field >
+  <mat-label>Description</mat-label>
+  <input matInput  placeholder="{{serviceDetail.email}}" [(ngModel)]="serviceDetail.service_description" readonly>
+</mat-form-field>
+
+<hr>
+<mat-form-field >
+  <mat-label>Status</mat-label>
+  <input matInput  placeholder="{{serviceDetail.password" [(ngModel)]="serviceDetail.service_status" readonly>
+</mat-form-field>
+
+</div>
