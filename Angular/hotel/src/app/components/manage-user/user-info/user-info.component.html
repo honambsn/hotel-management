@@ -5,7 +5,7 @@
 
   <mat-form-field  >
     <mat-label>User ID</mat-label>
-    <input matInput  placeholder="{{userDetail._id}}" [(ngModel)]="userDetail._id">
+    <input matInput  placeholder="{{userDetail._id}}" [(ngModel)]="userDetail._id" readonly>
   </mat-form-field>
 
 
@@ -14,9 +14,10 @@
     <mat-form-field>
 
         <mat-label>Name</mat-label>
-        <input matInput disabled={{!edit}} placeholder="{{userDetail.name}}" [(ngModel)]="userDetail.name">
+        <input matInput  placeholder="{{userDetail.name}}" [(ngModel)]="userDetail.name" readonly>
     </mat-form-field>
 
+  <mat-form-field>
     <mat-label>Name</mat-label>
     <input matInput  placeholder="{{userDetail.name}}" [(ngModel)]="userDetail.name" readonly>
   </mat-form-field>

@@ -88,9 +88,9 @@ export class UserInfoComponent {
       "room_status" : "Empty"
     }
     this.room.updateData(this.userDetail.roombooked[0], room_reset_status).subscribe((data:any)=>{
-      console.log(data)      
+      console.log(data)
     })
-
+  }
 
   goRoom()
   {
