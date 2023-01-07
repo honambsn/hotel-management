@@ -107,7 +107,7 @@ class userController {
         const user = await User.findById(req.params.id)
         const removeditem = user.roombooked.indexOf(room._id)
         user.roombooked.splice(removeditem, 1)
-        user.save()
+        await user.save()
         bookController.add_cancel_item(room, user, next)
         return res.status(200).json({ user })
     }
@@ -128,8 +128,8 @@ class userController {
         const user = await User.findById(req.params.id)
         const removeditems = user.servicebooked.indexOf(service.type_of_service)
         user.servicebooked.splice(removeditems,1)
-        bookController.add_cancelservice_item(service,user)
         await user.save()
+        bookController.add_cancelservice_item(service,user)
         res.json({user})
     }
 

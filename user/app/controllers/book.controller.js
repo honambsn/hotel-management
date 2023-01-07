@@ -28,7 +28,7 @@ class bookController{
         //var payment = user.payment - book.price
         const book = await Book.findOneAndUpdate({room_id:room._id,user_booking_id:user._id,room_status:'Booked'},{room_status:'Cancelled'})
         user.payment -= book.totalAmount
-        await user.save()
+        user.save()
     }
 
     async add_bookservice_item(service,user){
