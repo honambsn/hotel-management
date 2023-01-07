@@ -154,7 +154,8 @@ export class RoomComponent implements AfterViewInit {
     alert("NOT ALLOW TO CLEAR ALL DATA !!!")
 
     this.selection.clear()
-    //location.reload();
+    alert("deleted")
+    location.reload();
   }
 
   addRoom()
@@ -163,6 +164,7 @@ export class RoomComponent implements AfterViewInit {
     this.room.addRoom(data).subscribe(data=>{
       console.log(data)
     })
+    alert("added")
     location.reload();
   }
   ngAfterViewInit() {

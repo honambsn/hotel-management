@@ -53,13 +53,14 @@ export class RoominfoComponent {
 
 
   ngOnInit():void {
-
+    this.titleService.setTitle(this.title)
     this.uid = localStorage.getItem('room_detail')
     this.room.getRoomDetail(this.uid).subscribe((data:any)=>{
       this.roomDetail = data.rooms
       console.log(this.roomDetail)
     })
   }
+
   // getDetail()
   // {
   //   this.room.getRoomDetail(this.uid).subscribe((data:any)=>{
@@ -73,7 +74,7 @@ export class RoominfoComponent {
   // }
 
 
-  testService() {
+  bookService() {
     var data = {
     "_id" : "63b8060a8b02574e6ea10311"
     }
@@ -82,7 +83,15 @@ export class RoominfoComponent {
     })
     console.log("booked")
   }
-
+  cancelService() {
+    var data = {
+      "_id":"63b8057b8b02574e6ea1030c"
+    }
+    var uid = localStorage.getItem('uid')
+    this.account.cancelRoom(uid,data).subscribe(data=>{
+      console.log(data)
+    })
+  }
   bookRoom() {
     
     var uid = localStorage.getItem('uid')

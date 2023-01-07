@@ -62,6 +62,12 @@ export class AccountService {
     console.log(api + path + service_uid)
     return this.http.post(api + path,service_uid, httpOptions);
   }
+  cancelService(user_uid:any, service_uid:any):Observable<any> {
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
+    var path = 'user/detail/'+user_uid + "cancelservice"
+    return this.http.post(api + path,service_uid,httpOptions);
+  }
 
   // router.post('/user/detail/:id/bookedroom',userController.add_bookedroom_to_user)
   bookRoom(user_uid:any,data:any):Observable<any>{

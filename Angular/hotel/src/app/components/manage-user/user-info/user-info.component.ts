@@ -47,7 +47,7 @@ export class UserInfoComponent {
 
 
   ngOnInit():void {
-
+    this.titleService.setTitle("User info")
     console.log(localStorage.getItem('user_detail'))
     this.uid = localStorage.getItem('user_detail')
     this.account.getInfo(this.uid).subscribe((data:any)=>{

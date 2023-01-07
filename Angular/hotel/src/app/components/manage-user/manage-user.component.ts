@@ -122,6 +122,7 @@ constructor(private account :AccountService, private titleService:Title, private
         })
       }
       this.selection.clear()
+      alert("Updated successfully")
       location.reload();
     }
   }
@@ -153,6 +154,7 @@ constructor(private account :AccountService, private titleService:Title, private
     alert("NOT ALLOW TO CLEAR ALL DATA !!!")
 
     this.selection.clear()
+    alert("delete successfully")
     location.reload();
   }
 
@@ -162,6 +164,7 @@ constructor(private account :AccountService, private titleService:Title, private
     this.account.signup(data).subscribe(data=>{
       console.log(data)
     })
+    alert("added successfully")
     location.reload();
   }
 
