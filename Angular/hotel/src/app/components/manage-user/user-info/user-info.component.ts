@@ -72,10 +72,11 @@ export class UserInfoComponent {
       "room_status" : "Empty"
     }
     this.room.updateData(this.userDetail.roombooked[0], room_reset_status).subscribe((data:any)=>{
-      console.log(data)      
+      console.log(data)
     })
     location.reload()
   }
+
   resetRoom(){
     var data_room = {
       "_id" :this.userDetail._id
@@ -89,5 +90,13 @@ export class UserInfoComponent {
     this.room.updateData(this.userDetail.roombooked[0], room_reset_status).subscribe((data:any)=>{
       console.log(data)      
     })
+
+
+  goRoom()
+  {
+
+    let api = '/room-detail/'+this.userDetail.roombooked
+    this.router.navigate([api]);
+
   }
 }

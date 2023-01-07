@@ -15,3 +15,7 @@ button{
   margin-right: 10px;
 
 }
+
+input[disabled] {
+  pointer-events: none;
+}

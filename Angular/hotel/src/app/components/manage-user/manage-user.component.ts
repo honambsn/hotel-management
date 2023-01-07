@@ -28,7 +28,7 @@ export class ManageUserComponent implements AfterViewInit {
 
 
   userData : any = []
-  
+
   dataSource = new MatTableDataSource <any>(this.userData);
   displayedColumns: string[] = ['select','index','id', 'name', 'type','dob','address','email', 'password', 'point', 'payment'];
 
@@ -58,7 +58,7 @@ constructor(private account :AccountService, private titleService:Title, private
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
-    
+
 
     this.titleService.setTitle(this.title);
     console.log("account type: ",localStorage.getItem('account_type'))
@@ -162,7 +162,7 @@ constructor(private account :AccountService, private titleService:Title, private
     this.account.signup(data).subscribe(data=>{
       console.log(data)
     })
-    //location.reload();
+    location.reload();
   }
 
   applyFilter(event: Event) {
@@ -180,7 +180,7 @@ constructor(private account :AccountService, private titleService:Title, private
   }
 
   showPass() {
-    
+
     console.log(this.showPss)
     if (this.showPss) {
       this.type = "text";
@@ -189,7 +189,7 @@ constructor(private account :AccountService, private titleService:Title, private
     else this.type = "password";
     this.showPss = !this.showPss;
   }
-  
+
   potentialCus() {
     this.router.navigate(['/potential-list']);
   }
