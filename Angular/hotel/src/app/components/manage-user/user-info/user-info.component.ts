@@ -77,10 +77,26 @@ export class UserInfoComponent {
     location.reload()
   }
 
+  resetRoom(){
+    var data_room = {
+      "_id" :this.userDetail._id
+    }
+    this.account.resetRoom(data_room).subscribe((data:any)=>{
+      console.log(data);
+    })
+    var room_reset_status = {
+      "room_status" : "Empty"
+    }
+    this.room.updateData(this.userDetail.roombooked[0], room_reset_status).subscribe((data:any)=>{
+      console.log(data)      
+    })
+
+
   goRoom()
   {
 
     let api = '/room-detail/'+this.userDetail.roombooked
     this.router.navigate([api]);
+
   }
 }

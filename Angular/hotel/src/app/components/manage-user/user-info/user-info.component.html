@@ -1,6 +1,6 @@
 <div *ngIf="isAuth && userDetail">
 
-  <h1 class="user-info"> <strong>USER INFO</strong></h1>
+    <h1 class="user-info"> <strong>USER INFO</strong></h1>
 
 
   <mat-form-field  >
@@ -8,9 +8,14 @@
     <input matInput  placeholder="{{userDetail._id}}" [(ngModel)]="userDetail._id">
   </mat-form-field>
 
-  <hr>
 
-  <mat-form-field >
+    <hr>
+
+    <mat-form-field>
+
+        <mat-label>Name</mat-label>
+        <input matInput disabled={{!edit}} placeholder="{{userDetail.name}}" [(ngModel)]="userDetail.name">
+    </mat-form-field>
 
     <mat-label>Name</mat-label>
     <input matInput  placeholder="{{userDetail.name}}" [(ngModel)]="userDetail.name" readonly>
@@ -73,6 +78,7 @@
   <button class="show_potentialUser" mat-raised-button color="accent" (click) = "payAndPoint()">Print bill & add point</button>
 
   <!-- <button class="add_data" mat-raised-button color="accent" (click) = "addUser()" >Add</button>
+
   <button class="save_data" mat-raised-button color="accent" (click) = "updateUser()">Save</button>
   <button class="show_pass" mat-raised-button color="accent" (click) = "showPass()">Show/hide password</button>
   <button class="show_potentialUser" mat-raised-button color="accent" (click) = "potentialCus()">Show potential user</button> -->
@@ -81,3 +87,4 @@
 
 
 </div>
+
