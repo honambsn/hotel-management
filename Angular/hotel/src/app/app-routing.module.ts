@@ -17,6 +17,8 @@ import { Title } from '@angular/platform-browser';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { RoomComponent } from './components/room/room.component';
 import { SearchRoomComponent } from './components/room/search/search-room/search-room.component';
+import { UserServiceService } from './services/user-service/user-service.service';
+import { RoomServiceComponent } from './components/room-service/room-service.component';
 
 const resolvedChildATitle: ResolveFn<string> = () => Promise.resolve('child a');
 const routes: Routes = [
@@ -33,7 +35,8 @@ const routes: Routes = [
 {path:'search-room', component:SearchRoomComponent},
 {path:'room-detail/:id', component:RoominfoComponent},
 {path:'potential-list', component:PotentialListComponent},
-{path:'user-detail/:id', component: UserInfoComponent}
+{path:'user-detail/:id', component: UserInfoComponent},
+{path:'service',component:RoomServiceComponent},
 ];
 
 

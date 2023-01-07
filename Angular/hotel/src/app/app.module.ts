@@ -31,6 +31,8 @@ import { RoominfoComponent } from './components/room/roominfo/roominfo.component
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { PotentialListComponent } from './components/manage-user/potential-list/potential-list.component';
 import { UserInfoComponent } from './components/manage-user/user-info/user-info.component';
+import { RoomServiceComponent } from './components/room-service/room-service.component';
+import { UserServiceService } from './services/user-service/user-service.service';
 
 
 @NgModule({
@@ -52,6 +54,7 @@ import { UserInfoComponent } from './components/manage-user/user-info/user-info.
     PagenotfoundComponent,
     PotentialListComponent,
     UserInfoComponent,
+    RoomServiceComponent,
   ],
   imports: [
     BrowserModule,
