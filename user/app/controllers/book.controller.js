@@ -47,7 +47,7 @@ class bookController{
     async add_cancelservice_item(service,user){
         const bookservice = await Bookservice.findOneAndUpdate({service_id:service._id,user_booking_id:user._id,service_status:'Booked'},{service_status:'Cancelled'})
         user.payment -= bookservice.price
-        await user.save()
+        user.save()
     }
 }
 module.exports = new bookController
