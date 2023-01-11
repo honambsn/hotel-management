@@ -65,7 +65,7 @@ export class AccountService {
   cancelService(user_uid:any, service_uid:any):Observable<any> {
     httpOptions.headers =
       httpOptions.headers.set('Authorization', localStorage.getItem('token') as string);
-    var path = 'user/detail/'+user_uid + "cancelservice"
+    var path = 'user/detail/'+user_uid + "/cancelservice"
     return this.http.post(api + path,service_uid,httpOptions);
   }
 

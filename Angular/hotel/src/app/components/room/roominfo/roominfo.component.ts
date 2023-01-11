@@ -85,10 +85,10 @@ export class RoominfoComponent {
   }
   cancelService() {
     var data = {
-      "_id":"63b8057b8b02574e6ea1030c"
+      "_id":"63b8060a8b02574e6ea10311"
     }
     var uid = localStorage.getItem('uid')
-    this.account.cancelRoom(uid,data).subscribe(data=>{
+    this.account.cancelService(uid,data).subscribe(data=>{
       console.log(data)
     })
   }
