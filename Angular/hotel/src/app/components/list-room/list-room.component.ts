@@ -1,34 +1,38 @@
-
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import {SelectionModel} from '@angular/cdk/collections';
-import {MatTable, MatTableDataSource} from '@angular/material/table';
-import { AccountService } from 'src/app/services/account/account.service';
-import {MatPaginator} from '@angular/material/paginator';
-import { JsonpClientBackend } from '@angular/common/http';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BookComponent } from './../book/book.component';
+import { RoomService } from './../../services/room/room.service';
 import { Title } from '@angular/platform-browser';
-import { RoomService } from 'src/app/services/room/room.service';
-import { UserServiceService } from 'src/app/services/user-service/user-service.service';
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatTableDataSource } from '@angular/material/table';
+import { AccountService} from 'src/app/services/account/account.service';
+import { AfterViewInit } from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import { ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
+
+
+
 @Component({
-  selector: 'app-room-service',
-  templateUrl: './room-service.component.html',
-  styleUrls: ['./room-service.component.css']
+  selector: 'app-list-room',
+  templateUrl: './list-room.component.html',
+  styleUrls: ['./list-room.component.css']
 })
-export class RoomServiceComponent {
-  title = "Manage Services";
+export class ListRoomComponent {
+
+  
+  title = "Manage Room";
   isEdit:boolean = false;
   isAuth:boolean = false;
   isEmployee: boolean = false;
   searchText: string ='';
 
-  serviceData : any = []
-  dataSource = new MatTableDataSource <any>(this.serviceData);
-
-  displayedColumns: string[] = ['select','index','id', 'type_of_service', 'price','service_description', 'service_status'];
-
-  constructor(private titleService:Title,  private router: Router, private user_service:UserServiceService) {
-
+  roomData : any = []
+  dataSource = new MatTableDataSource <any>(this.roomData);
+  displayedColumns: string[] = ['index','id', 'room_no', 'room_type', 'price', 'room_status', 'clean_status'];
+  
+  constructor(private titleService:Title, private room : RoomService, private router: Router) {
     const token = localStorage.getItem('token');
     const account_type = localStorage.getItem('account_type');
     if (token) {
@@ -53,20 +57,18 @@ export class RoomServiceComponent {
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
     console.log(localStorage.getItem('account_type'));
-    this.user_service.getAllService().subscribe((data:any)=>{
-
-
-      this.serviceData = data.services;
-      console.log("data:",this.serviceData)
-      this.dataSource = new MatTableDataSource(this.serviceData);
-
+    this.room.getAllRoom().subscribe((data:any)=>{
+      console.log("data:",data.rooms)
+      console.log(typeof data.rooms);
+      this.roomData = data.rooms;
+      this.dataSource = new MatTableDataSource(data.rooms);
       this.dataSource.paginator = this.paginator;
       console.log(this.dataSource.data.length);
     })
 
   }
 
-  selection = new SelectionModel<any>(true, []);  
+  selection = new SelectionModel<any>(true, []);
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -88,8 +90,7 @@ export class RoomServiceComponent {
           );
   }
 
-
-  editService()
+  editRoom()
   {
     let isSelect = false;
     this.dataSource.data.forEach(row => {
@@ -106,21 +107,17 @@ export class RoomServiceComponent {
   {
     return this.isEdit && this.selection.isSelected(row)
   }
-
-  updateService()
-
+  updateRoom()
   {
     console.log("updateRoom");
     if (this.isEdit)
     {
       console.log("isedit")
       this.isEdit= !this.isEdit;
-
-
+      
       for (let i = 0; i< this.dataSource.data.length;i++)
       {
-        this.user_service.updateSpecificService(this.dataSource.data[i]._id,this.dataSource.data[i]).subscribe(data=>{
-
+        this.room.updateData(this.dataSource.data[i]._id,this.dataSource.data[i]).subscribe(data=>{
           console.log(data)
         })
       }
@@ -130,8 +127,7 @@ export class RoomServiceComponent {
     }
   }
 
-
-  delService()
+  delRoom()
   {
     let delList:any = []
     this.dataSource.data.forEach(row => {
@@ -147,9 +143,7 @@ export class RoomServiceComponent {
       for (let i = 0; i < delList.length; i++)
       {
         console.log(delList[i]._id)
-
-        this.user_service.deleteService(delList[i]._id).subscribe(data=>{
-
+        this.room.delRoom(delList[i]._id).subscribe(data=>{
           console.log(data)
         });
       }
@@ -160,27 +154,26 @@ export class RoomServiceComponent {
     alert("NOT ALLOW TO CLEAR ALL DATA !!!")
 
     this.selection.clear()
-    //location.reload();
+    alert("deleted")
+    location.reload();
   }
 
-
-  addNewService()
+  addRoom()
   {
-    let data = {type_of_service:'Random Service'}
-    this.user_service.addService(data).subscribe(data=>{
+    let data = {room_no: '1000'}
+    this.room.addRoom(data).subscribe(data=>{
       console.log(data)
     })
-   // location.reload();
+    alert("added")
+    location.reload();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
 
   }
-
-  // searchRoom() {
-  //   this.router.navigate(['/search-room'])
-  // }
-
+  searchRoom() {
+    this.router.navigate(['/search-room'])
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -188,13 +181,8 @@ export class RoomServiceComponent {
 
   }
   onSelect(element:any) {
-
-
-    localStorage.setItem('service-id',element._id)
-
-    let api = '/service-detail/'+element._id
-    this.router.navigate([api]);
+    localStorage.setItem('room_detail',element._id)
+    this.router.navigate(['/room-detail', element._id]);
   }
-
 
 }

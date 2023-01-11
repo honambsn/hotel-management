@@ -3,60 +3,78 @@
     <h1> ROOM INFO</h1>
 
 
+
     <mat-form-field>
         <mat-label>Room ID</mat-label>
-        <input matInput disabled={{!edit}} placeholder="{{roomDetail._id}}" [(ngModel)]="roomDetail._id">
+        <input matInput disabled placeholder="{{roomDetail._id}}" [(ngModel)]="roomDetail._id">
     </mat-form-field>
+
 
     <hr>
 
     <mat-form-field>
 
+
         <mat-label> Room No</mat-label>
-        <input matInput disabled={{!edit}} placeholder="{{roomDetail.room_no}}" [(ngModel)]="roomDetail.room_no">
+        <input matInput disabled placeholder="{{roomDetail.room_no}}" [(ngModel)]="roomDetail.room_no">
     </mat-form-field>
 
     <hr>
     <mat-form-field>
         <mat-label> Room Type</mat-label>
-        <input matInput disabled={{!edit}} placeholder="{{roomDetail.room_type}}" [(ngModel)]="roomDetail.room_type">
+        <input matInput disabled placeholder="{{roomDetail.room_type}}" [(ngModel)]="roomDetail.room_type">
+
     </mat-form-field>
 
     <hr>
     <mat-form-field>
+
         <mat-label> Price</mat-label>
-        <input matInput disabled={{!edit}} placeholder="{{roomDetail.price}}" [(ngModel)]="roomDetail.price">
+        <input matInput disabled placeholder="{{roomDetail.price}}" [(ngModel)]="roomDetail.price">
+
     </mat-form-field>
 
     <hr>
     <mat-form-field>
+
         <mat-label> Room status</mat-label>
-        <input matInput disabled={{!edit}} placeholder="{{roomDetail.room_status}}" [(ngModel)]="roomDetail.room_status">
+        <input matInput disabled placeholder="{{roomDetail.room_status}}" [(ngModel)]="roomDetail.room_status">
+
     </mat-form-field>
 
     <hr>
     <mat-form-field>
         <mat-label> Clean status</mat-label>
-        <input matInput disabled={{!edit}} placeholder="{{roomDetail.clean_status}}" [(ngModel)]="roomDetail.clean_status">
+
+        <input matInput disabled placeholder="{{roomDetail.clean_status}}" [(ngModel)]="roomDetail.clean_status">
     </mat-form-field>
+
 
     <hr>
-    <mat-form-field>
-        <mat-label> Clean status</mat-label>
-        <input matInput disabled={{edit}} placeholder="{{roomDetail.clean_status}}" [(ngModel)]="roomDetail.clean_status">
+    <mat-form-field *ngIf="checkStatus()">
+        <mat-label> Check In</mat-label>
+        <input matInput disabled={{!edit}} placeholder="ex: dd/mm/yyyy" [(ngModel)]="checkIn">
+        <hr>
+    </mat-form-field>
+
+
+    <mat-form-field *ngIf="checkStatus()">
+        <mat-label> Check Out</mat-label>
+        <input matInput disabled={{!edit}} placeholder="ex: dd/mm/yyyy" [(ngModel)]="checkOut">
+        <hr>
     </mat-form-field>
 
 
 
 
 
-
-
+    <button class="delete_data" mat-raised-button color="accent" (click)="bookService()">Book this service</button>
     <button class="delete_data" mat-raised-button color="accent" (click)="bookRoom()"> Book this room</button>
     <button class="add_data" mat-raised-button color="accent" (click)="cancelRoom()"> Cancel this room</button>
-    <button class="delete_data" mat-raised-button color="accent" (click)="bookService()">Book this service</button>
-    <button class="delete_data" mat-raised-button color="accent" (click)="cancelService()">Cancel this service</button>
+    <button class="add_data" *ngIf="checkStatus()" mat-raised-button color="accent" (click)="editCheckInOut()"> Edit Check In and Check Out</button>
+    <button class="add_data" *ngIf="checkStatus()" mat-raised-button color="accent" (click)="updateCheckInOut()">Update Check In and Check Out</button>
     <!-- <button class="save_data" mat-raised-button color="accent" (click) = "updateUser()">Save</button>
+
   <button class="show_pass" mat-raised-button color="accent" (click) = "showPass()">Show/hide password</button>
   <button class="show_potentialUser" mat-raised-button color="accent" (click) = "potentialCus()">Show potential user</button> -->
 </div>

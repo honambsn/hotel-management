@@ -99,4 +99,11 @@ export class UserInfoComponent {
     this.router.navigate([api]);
 
   }
+
+  goService()
+  {
+    let api = '/service-detail/'+this.userDetail.servicebooked
+    this.router.navigate([api]);
+
+  }
 }
