@@ -52,6 +52,8 @@ export class UserServiceService {
 
   }
   updateAllService(data:any):Observable<any>{
-    httpOptions.headers =
-
+    httpOptions.headers = 
+      httpOptions.headers.set('Authorization',localStorage.getItem('token') as string);
+    return this.http.patch(api + 'service/detail/' ,data,httpOptions);
+  }
 }

@@ -34,7 +34,7 @@ class userController {
             .catch((error) => {})
 
     }
-    
+
 
     remove_user(req, res, next) {
         User.deleteOne({ _id: req.params.id })
@@ -108,30 +108,31 @@ class userController {
         const removeditem = user.roombooked.indexOf(room._id)
         user.roombooked.splice(removeditem, 1)
 
-        user.save()
+        await user.save()
         bookController.add_cancel_item(room, user, next)
         return res.status(200).json({ user })
     }
 
 
 
-    async add_bookedservice_to_user(req,res,next){
+    async add_bookedservice_to_user(req, res, next) {
         const user = await User.findById(req.params.id)
         const service = await Service.findById(req.body)
         user.servicebooked.push(service.type_of_service)
-        bookController.add_bookservice_item(service,user)
+        bookController.add_bookservice_item(service, user)
         await user.save()
-        res.json({user})
+        res.json({ user })
     }
 
-    async cancel_service(req,res,next){
+    async cancel_service(req, res, next) {
         const service = await Service.findById(req.body)
         const user = await User.findById(req.params.id)
         const removeditems = user.servicebooked.indexOf(service.type_of_service)
-        user.servicebooked.splice(removeditems,1)
+        bookController.add_cancelservice_item(service, user)
+        user.servicebooked.splice(removeditems, 1)
+
         await user.save()
-        bookController.add_cancelservice_item(service,user)
-        res.json({user})
+        res.json({ user })
     }
 
     async resetpayment_addpoint(req, res, next) {
@@ -157,7 +158,7 @@ class userController {
             await room.save()
         })
         user.roombooked = []
-        user.servicebooked=[]
+        user.servicebooked = []
         await user.save()
         res.send('Reset Success')
     }

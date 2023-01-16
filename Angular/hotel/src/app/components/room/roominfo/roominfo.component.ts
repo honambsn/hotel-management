@@ -81,7 +81,7 @@ export class RoominfoComponent {
 
   bookService() {
     var data = {
-    "_id" : "63b8060a8b02574e6ea10311"
+    "_id" : "63b8057b8b02574e6ea1030c"
     }
     this.account.addService(localStorage.getItem('uid'), data).subscribe(data=>{
       console.log(data)
@@ -93,7 +93,7 @@ export class RoominfoComponent {
       "_id":"63b8057b8b02574e6ea1030c"
     }
     var uid = localStorage.getItem('uid')
-    this.account.cancelRoom(uid,data).subscribe(data=>{
+    this.account.cancelService(uid,data).subscribe(data=>{
       console.log(data)
     })
   }
@@ -102,8 +102,8 @@ export class RoominfoComponent {
 
     var uid = localStorage.getItem('uid')
     var data ={ "_id" : this.roomDetail._id,
-      "checkInAt" : "1/1/2000",
-      "checkOutAt" : "2/2/2002",
+      "checkInAt" : "01/01/2000",
+      "checkOutAt" : "02/02/2002",
     }
     console.log(typeof data)
     this.account.bookRoom(uid, data ).subscribe(data=>{
